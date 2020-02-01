@@ -28,6 +28,6 @@ todo
 * Initialize npm package
 * Add eslint
 
-* Create server page which will give 404 error always. 
+--DONE-- * Create server page which will give 404 error always. 
 * Add Home page for the todo app.
 * Add options
