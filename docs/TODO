@@ -1,0 +1,33 @@
+todo
+
+---- Requirements ----
+  * Create one or more to-do list with a title
+  * View all the to-do lists
+  * Add an item to a to-do list
+  * Delete an item from to-do list
+  * Mark an item as done and undone
+  * Delete a todo list
+
+---- todo for todo App ----
+
+* Initial setup 
+    folders and files to create 
+      public
+      lib
+      templates
+      test
+      public/scripts
+      public/css
+
+    files
+      public/css/style.css
+      public/index.html
+      lib/app.js
+      server.js
+
+* Initialize npm package
+* Add eslint
+
+* Create server page which will give 404 error always. 
+* Add Home page for the todo app.
+* Add options
