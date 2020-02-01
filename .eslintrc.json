@@ -1,7 +1,8 @@
 {
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+        "mocha": true
     },
     "extends": "eslint:recommended",
     "globals": {
@@ -12,6 +13,24 @@
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
-    "rules": {
-    }
+    "rules": {},
+    "overrides": [
+        {
+            "files": [
+                "public/js/webLib.js"
+            ],
+            "rules": {
+                "no-unused-vars": "off",
+                "no-undef": "off"
+            }
+        },
+        {
+            "files": [
+                "test/*Test.js"
+            ],
+            "rules": {
+                "no-magic-numbers": "off"
+            }
+        }
+    ]
 }
