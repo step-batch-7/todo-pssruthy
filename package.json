@@ -9,7 +9,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "eslint lib/*.js ./*.js",
+    "test": "nyc mocha && eslint lib/*.js ./*.js",
     "start": "node server.js"
   },
   "repository": {
