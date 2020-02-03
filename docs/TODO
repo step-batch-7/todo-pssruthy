@@ -29,5 +29,7 @@ todo
 --DONE-- * Add eslint
 
 --DONE-- * Create server page which will give 404 error always. 
-* Add Home page for the todo app.
+--DONE-- * Add Home page for the todo app.
 * Add options
+
+* Update the server to response to css files.
