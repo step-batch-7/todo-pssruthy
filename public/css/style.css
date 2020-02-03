@@ -30,7 +30,7 @@ body {
   margin: auto;
   padding: 20px;
   border-radius: 10px;
-  background-color: rgb(178, 235, 151);
+  background-color:rgba(128, 128, 128, 0.379);
 }
 
 .flex {
@@ -67,10 +67,23 @@ body {
   border-radius: 4px;
 }
 
+#addItem {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 5px;
+  width: fit-content;
+  background-color: grey;
+  font-size: 20px;
+  border-radius: 4px;
+  border-color: rgb(73, 71, 71);
+}
+
 #saveTodoButton{
   background-color: antiquewhite  ;
   width: fit-content;
-  height: 25px;
+  height: 32px;
   border-radius: 5px;
   font-size: 13px;
 }

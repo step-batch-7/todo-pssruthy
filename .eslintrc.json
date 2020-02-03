@@ -101,7 +101,16 @@
                 "test*.js"
             ],
             "rules": {
-                "no-magic-numbers": "off",
+                "no-magic-numbers": "off"
+            }
+        },
+        {
+            "files": [
+                "public/scripts/*.js"
+            ],
+            "rules": {
+                "no-unused-vars": "off",
+                "no-undef": "off"
             }
         }
     ]

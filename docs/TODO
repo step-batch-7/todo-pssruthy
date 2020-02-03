@@ -32,4 +32,7 @@ todo
 --DONE-- * Add Home page for the todo app.
 * Add options
 
-* Update the server to response to css files.
+--DONE-- * Update the server to response to css files.
+
+* Store the data, data structure as 
+    [{todoId: 1, title: "My day", items: [{ id: 1, done: false, item: "brush the teeth" }, ...] }, ...]
