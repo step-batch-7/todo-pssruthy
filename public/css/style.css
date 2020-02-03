@@ -1,21 +1,49 @@
 body {
-  font-family: sans-serif;
+  font-family: serif;
+  align-items: center;
 }
 
-#heading {
-  display: flex;
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mainHeading {
   justify-content: center;
+  padding-left: 45%;
+  padding-right: 60%;
 }
 
-#displayBox {
-  width: 700px;
-  height: 650px;
+.textCenter {
+  text-align: center;
+}
+
+.todoList{
+  width: 501px;
+}
+
+.displayBox {
+  width: 40vw;
+  height: 75vh;
   margin: auto;
   padding: 20px;
   border-radius: 10px;
-  background-color: rgb(219, 241, 241);
+  background-color: rgb(178, 235, 151);
 }
 
+.flex {
+  display: flex;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+.todoTitle {
+  font-size: 25px;
+}
 #newTodoDiv {
   margin: auto;
   display: flex;
@@ -23,4 +51,26 @@ body {
   padding: 5px;
   border-radius: 3px;
   background-color: antiquewhite;
+}
+
+.titleInput {
+  width :430px;
+  border-radius: 5px;
+}
+
+.itemInput{
+  width: 493px;
+  height: 25px;
+  margin: 5px;
+  border: rgb(57, 53, 53) solid .5px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+#saveTodoButton{
+  background-color: antiquewhite  ;
+  width: fit-content;
+  height: 25px;
+  border-radius: 5px;
+  font-size: 13px;
 }
