@@ -34,5 +34,8 @@ todo
 
 --DONE-- * Update the server to response to css files.
 
-* Store the data, data structure as 
+--DONE-- * Store the data, data structure as 
     [{todoId: 1, title: "My day", items: [{ id: 1, done: false, item: "brush the teeth" }, ...] }, ...]
+
+* Give id for todo and todo items
+* Show all todo in the home page.
