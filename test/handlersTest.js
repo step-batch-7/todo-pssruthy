@@ -1,4 +1,6 @@
 const request = require('supertest');
+const sinon = require('sinon');
+const fs = require('fs');
 
 const {app} = require('../lib/handlers');
 
@@ -19,3 +21,19 @@ describe('GET', () => {
   });
 });
 
+describe('POST', () => {
+  before(() => {
+    sinon.replace(fs, 'writeFileSync', () => {});
+  });
+  it('Should redirect to home page when new todo will add', done => {
+    request(app.serve.bind(app))
+      .post('/saveTodo')
+      .set('Accept', '*/*')
+      .send('title=groceries&items=tomato')
+      .expect(302, done)
+      .expect('Location', '/');
+  });
+  after(() => {
+    sinon.restore();
+  });
+});

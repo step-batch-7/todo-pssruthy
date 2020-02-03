@@ -98,7 +98,7 @@
     "overrides": [
         {
             "files": [
-                "test*.js"
+                "./test/*.js"
             ],
             "rules": {
                 "no-magic-numbers": "off"
