@@ -40,4 +40,9 @@ todo
 --DONE-- * Give id for todo and todo items
 * Show all todo in the home page.
 
+* Add class for
+  --DONE-- todoList
+  todo
+  item
 
+* Show all todo list with its items.
