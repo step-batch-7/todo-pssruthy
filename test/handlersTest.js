@@ -19,6 +19,13 @@ describe('GET', () => {
       .expect(404, done)
       .expect('Content-Type', 'text/html');
   });
+  it('Should give css page with status code 200', (done) => {
+    request(app.serve.bind(app))
+      .get('/css/style.css')
+      .set('Accept', '*/*')
+      .expect(200, done)
+      .expect('Content-Type', 'text/css');
+  });
 });
 
 describe('POST', () => {

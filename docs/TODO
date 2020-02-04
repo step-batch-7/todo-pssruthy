@@ -46,3 +46,8 @@ todo
   item
 
 * Show all todo list with its items.
+* Add checkbox for the status it done or not.
+* Update when the item user click the check box as checked.
+
+* Alow the user to delete the todo.
+* Alow the user to delete a item.
