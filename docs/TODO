@@ -37,5 +37,7 @@ todo
 --DONE-- * Store the data, data structure as 
     [{todoId: 1, title: "My day", items: [{ id: 1, done: false, item: "brush the teeth" }, ...] }, ...]
 
-* Give id for todo and todo items
+--DONE-- * Give id for todo and todo items
 * Show all todo in the home page.
+
+
