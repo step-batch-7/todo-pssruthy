@@ -38,12 +38,14 @@ todo
     [{todoId: 1, title: "My day", items: [{ id: 1, done: false, item: "brush the teeth" }, ...] }, ...]
 
 --DONE-- * Give id for todo and todo items
-* Show all todo in the home page.
+--DONE-- * Show all todo in the home page.
 
 * Add class for
   --DONE-- todoList
-  todo
+  --DONE-- todo
   item
+
+* Move the home page from templates to public and use onload to show the todo.
 
 * Show all todo list with its items.
 * Add checkbox for the status it done or not.

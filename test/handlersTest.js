@@ -26,6 +26,13 @@ describe('GET', () => {
       .expect(200, done)
       .expect('Content-Type', 'text/css');
   });
+  it('Should give the stringified todo list with status code 200', (done) => {
+    request(app.serve.bind(app))
+      .get('/todoList')
+      .set('Accept', '*/*')
+      .expect(200, done)
+      .expect('Content-Type', 'text/plain');
+  });
 });
 
 describe('POST', () => {
