@@ -45,11 +45,11 @@ todo
   --DONE-- todo
   item
 
-* Move the home page from templates to public and use onload to show the todo.
+--DONE-- * Move the home page from templates to public and use onload to show the todo.
 
-* Show all todo list with its items.
-* Add checkbox for the status it done or not.
-* Update when the item user click the check box as checked.
+--DONE-- * Show all todo list with its items.
+--DONE-- * Add checkbox for the status it done or not.
+--DONE-- * Update when the item user click the check box as checked.
 
 * Alow the user to delete the todo.
 * Alow the user to delete a item.

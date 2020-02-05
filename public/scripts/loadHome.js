@@ -9,9 +9,30 @@ const sendHttpGetReq = function(url, callback){
   req.send();
 };
 
+const sendHttpPostReq = function(url, callback, body){
+  const req = new XMLHttpRequest();
+  req.onload = function(){
+    if(this.status === 200) {
+      return callback(this.responseText);
+    }
+  };
+  req.open('POST', url);
+  req.send(body);
+};
+
+const updateItemStatus = function() {
+  const id = event.target.id;
+  sendHttpPostReq('updateItemStatus', () => {}, `id=${id}` );
+};
+
 const structureItems = function(items){
-  return items.reduce((html, item) => { 
-    return `${html}</br><input type="checkbox" id="${item.id}">${item.item}`; 
+  return items.reduce((html, itemInfo) => { 
+    const {id, isDone, item} = itemInfo;
+    const status = isDone ? 'checked' : 'unchecked';
+    return `${html}
+    </br>
+    <input type="checkbox" id="${id}" onclick="updateItemStatus()" ${status}>
+    ${item}`; 
   }, '');
 };
 
