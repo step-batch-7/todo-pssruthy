@@ -101,6 +101,11 @@ body {
   justify-content: space-between;
 }
 
+
+.extractedTodo:hover{
+  box-shadow: 2px 2px 2px black;
+}
+
 .items {
   background-color: rgba(128, 128, 128, 0.139);
   padding-bottom: 10px;
