@@ -47,6 +47,14 @@ describe('POST', () => {
       .expect(302, done)
       .expect('Location', '/');
   });
+  it('Should add and redirect new todo with multiple items', done => {
+    request(app.serve.bind(app))
+      .post('/saveTodo')
+      .set('Accept', '*/*')
+      .send('title=groceries&items=[tomato,potato]')
+      .expect(302, done)
+      .expect('Location', '/');
+  });
   it('Should update the item status when the checkbox is clicked', done => {
     request(app.serve.bind(app))
       .post('/updateItemStatus')
