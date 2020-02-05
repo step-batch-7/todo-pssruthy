@@ -21,6 +21,7 @@ const formateTodo = function(todoHtml, todo){
           <span>
             <h3>${todo.title}</h3>
           </span>${time}
+        <img src="./img/delete_bin.png" class="removeTodo"">
         </div>
         <div class="items">
           ${structureItems(todo.items)}
