@@ -112,6 +112,14 @@
                 "no-unused-vars": "off",
                 "no-undef": "off"
             }
+        },
+        {
+            "files": [
+                "./config.js"
+            ],
+            "rules": {
+                "no-process-env": "off"
+            }
         }
     ]
 }

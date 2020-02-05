@@ -47,11 +47,6 @@ describe('POST', () => {
       .expect(302, done)
       .expect('Location', '/');
   });
-  before(() => {
-    sinon.replace(fs, 'readFileSync', () => {
-      return '[{title: "home", id: 1, items: [{id: "1_1", item: "potato", isDone: false}]}]';
-    });
-  });
   it('Should update the item status when the checkbox is clicked', done => {
     request(app.serve.bind(app))
       .post('/updateItemStatus')
