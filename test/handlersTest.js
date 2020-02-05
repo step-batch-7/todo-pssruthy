@@ -54,6 +54,14 @@ describe('POST', () => {
       .send('id=1_1')
       .expect(200, done);
   });
+  it('Should delete the todo from the todoList', done => {
+    request(app.serve.bind(app))
+      .post('/removeTodo')
+      .set('Accept', '*/*')
+      .send('id=1')
+      .expect(200, done);
+  });
+  
   after(() => {
     sinon.restore();
   });

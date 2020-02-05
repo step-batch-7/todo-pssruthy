@@ -21,7 +21,7 @@ const formateTodo = function(todoHtml, todo){
           <span>
             <h3>${todo.title}</h3>
           </span>${time}
-        <img src="./img/delete_bin.png" class="removeTodo"">
+        <img src="./img/delete_bin.png" class="removeTodo" id="del_${todo.id}">
         </div>
         <div class="items">
           ${structureItems(todo.items)}
@@ -33,6 +33,7 @@ const structureTodoList = function(todoListString) {
   const html = todoList.reduce(formateTodo, '');
   const parent = document.getElementById('todoList');
   parent.innerHTML = html;
+  attachEventListener('removeTodo', 'click', removeTodo);
 };
 
 const showItems = function () {
@@ -42,6 +43,21 @@ const showItems = function () {
   } else {
     content.style.display = 'block';
   }
+};
+
+const removeTodo = function(){
+  const [, todoId] = event.target.id.split('_');  
+  sendHttpPostReq('removeTodo', () => {
+    sendHttpGetReq('todoList', structureTodoList);
+  }, `id=${todoId}`);
+};
+
+const attachEventListener = function(className, event, listener) {
+  const tags = document.querySelectorAll(`.${className}`);
+  
+  Array.from(tags).forEach((tag) => {
+    tag.addEventListener(`${event}`, listener);
+  });
 };
 
 const main = function(){

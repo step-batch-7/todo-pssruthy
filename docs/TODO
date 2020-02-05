@@ -51,5 +51,5 @@ todo
 --DONE-- * Add checkbox for the status it done or not.
 --DONE-- * Update when the item user click the check box as checked.
 
-* Alow the user to delete the todo.
+--DONE-- * Alow the user to delete the todo.
 * Alow the user to delete a item.
