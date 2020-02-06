@@ -31,7 +31,7 @@ describe('GET', () => {
       .get('/todoList')
       .set('Accept', '*/*')
       .expect(200, done)
-      .expect('Content-Type', 'text/plain');
+      .expect('Content-Type', 'application/json');
   });
 });
 
@@ -67,6 +67,13 @@ describe('POST', () => {
       .post('/removeTodo')
       .set('Accept', '*/*')
       .send('id=1')
+      .expect(200, done);
+  });
+  it('Should delete the item from the todo', done => {
+    request(app.serve.bind(app))
+      .post('/removeItem')
+      .set('Accept', '*/*')
+      .send('id=1_1')
       .expect(200, done);
   });
   

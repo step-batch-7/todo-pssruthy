@@ -17,7 +17,7 @@ const structureItems = function(items){
     <input type="checkbox" onclick="updateItemStatus()" ${status}>
     ${item}
     </div>
-    <img src="./img/minus.png" class="removeTodoItemImg">
+    <img src="./img/minus.png" class="removeTodoItemImg" id="del_${id}">
     </div>`; 
   }, '');
 };
@@ -42,6 +42,7 @@ const structureTodoList = function(todoListString) {
   const parent = document.getElementById('todoList');
   parent.innerHTML = html;
   attachEventListener('removeTodo', 'click', removeTodo);
+  attachEventListener('removeTodoItemImg', 'click', removeItem);
 };
 
 const showItems = function () {
@@ -60,9 +61,16 @@ const removeTodo = function(){
   }, `id=${todoId}`);
 };
 
+const removeItem = function(){
+  const id = event.currentTarget.parentElement.id;
+  const requestForList = () => {
+    sendHttpGetReq('todoList', structureTodoList);
+  };  
+  sendHttpPostReq('removeItem', requestForList, `id=${id}` );
+};
+
 const attachEventListener = function(className, event, listener) {
   const tags = document.querySelectorAll(`.${className}`);
-  
   Array.from(tags).forEach((tag) => {
     tag.addEventListener(`${event}`, listener);
   });
