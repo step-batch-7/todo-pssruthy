@@ -73,7 +73,7 @@ describe('POST', () => {
     request(app.serve.bind(app))
       .post('/removeItem')
       .set('Accept', '*/*')
-      .send('id=1_1')
+      .send('id=2_1')
       .expect(200, done);
   });
   
