@@ -1,6 +1,9 @@
 const updateItemStatus = function() {
-  const id = event.target.id;
-  sendHttpPostReq('updateItemStatus', () => {}, `id=${id}` );
+  const id = event.currentTarget.parentElement.parentElement.getAttribute('id');
+  const requestForList = () => {
+    sendHttpGetReq('todoList', structureTodoList);
+  };  
+  sendHttpPostReq('updateItemStatus', requestForList, `id=${id}` );
 };
 
 const structureItems = function(items){
@@ -9,10 +12,11 @@ const structureItems = function(items){
     const status = isDone ? 'checked' : 'unchecked';
     return `${html}
     </br>
-    <div class="item flex spaceBetween">
+    <div class="item flex spaceBetween" id="${id}">
     <div>
-    <input type="checkbox" id="${id}" onclick="updateItemStatus()" ${status}>
-    ${item}</div>
+    <input type="checkbox" onclick="updateItemStatus()" ${status}>
+    ${item}
+    </div>
     <img src="./img/minus.png" class="removeTodoItemImg">
     </div>`; 
   }, '');
@@ -21,15 +25,15 @@ const structureItems = function(items){
 const formateTodo = function(todoHtml, todo){
   const time = new Date(todo.time).toLocaleString();
   return `${todoHtml}
-        <div class="extractedTodo flex" id="${todo.id}" onclick="showItems()" >
-          <span>
-            <h3>${todo.title}</h3>
-          </span>${time}
-        <img src="./img/delete_bin.png" class="removeTodo" id="del_${todo.id}">
-        </div>
-        <div class="items">
-          ${structureItems(todo.items)}
-        </div></br>`;
+    <div class="extractedTodo flex" id="${todo.id}" onclick="showItems()" >
+      <span>
+        <h3>${todo.title}</h3>
+      </span>${time}
+      <img src="./img/delete_bin.png" class="removeTodo" id="del_${todo.id}">
+    </div>
+    <div class="items">
+      ${structureItems(todo.items)}
+    </div></br>`;
 };
 
 const structureTodoList = function(todoListString) {
