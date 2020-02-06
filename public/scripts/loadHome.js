@@ -9,8 +9,12 @@ const structureItems = function(items){
     const status = isDone ? 'checked' : 'unchecked';
     return `${html}
     </br>
+    <div class="item flex spaceBetween">
+    <div>
     <input type="checkbox" id="${id}" onclick="updateItemStatus()" ${status}>
-    ${item}`; 
+    ${item}</div>
+    <img src="./img/minus.png" class="removeTodoItemImg">
+    </div>`; 
   }, '');
 };
 
