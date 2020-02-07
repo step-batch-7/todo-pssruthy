@@ -11,16 +11,42 @@
   </head>
 
   <body onload="main()">
-    <div class="displayBox center">
-      <div class='mainHeading flex'>things <span>
-          <h2>TODO</h2>
-        </span></div>
-      <a href="./createNewTodo.html" style="text-decoration: none;">
-        <div id="newTodoDiv">+ new TODO</div>
-      </a><br>
-      <div id="todoList">
+    <div>
+      <div class="heading flex spaceBetween">
+        <div class="flex">things
+          <span>
+            <h2>TODO</h2>
+          </span>
+          <img src="./img/to-do-icon.png" alt="" width="10%">
+        </div>
+        <div>
+          <input type="text" id="todoSearch" placeholder="Search todo...">
+        </div>
+        <div class="flex">
+          <img src="./img/user.png" alt="" id="usrLoginIcon">
+          <label for="text">Sruthy</label>
+        </div>
       </div>
-      <div id="viewTodo"></div>
+      <div class="flex">
+        <div id="sideBar">
+          <a href="./createNewTodo.html">
+            <div id="addTodoDiv"><img src="./img/plusIcon.png" id="addTodoIcon" alt="">
+              <span class="textCenter"> Add todo</span>
+            </div>
+          </a>
+          <hr>
+          <div id="todoIndex"></div>
+        </div>
+        <div id="todoBoard">
+          <div id="itemSearch">
+            <input type="text" id="itemSearch" placeholder="Search item...">
+          </div>
+          <div id="todoItems">
+
+          </div>
+
+        </div>
+      </div>
     </div>
   </body>
 

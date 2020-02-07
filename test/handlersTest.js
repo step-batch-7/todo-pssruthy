@@ -33,6 +33,13 @@ describe('GET', () => {
       .expect(200, done)
       .expect('Content-Type', 'application/json');
   });
+  it('Should give the specified todo with status code 200', (done) => {
+    request(app.serve.bind(app))
+      .get('/getTodo?id=1')
+      .set('Accept', '*/*')
+      .expect(200, done)
+      .expect('Content-Type', 'application/json');
+  });
 });
 
 describe('POST', () => {

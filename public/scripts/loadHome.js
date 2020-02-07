@@ -1,9 +1,10 @@
 const updateItemStatus = function() {
-  const id = event.currentTarget.parentElement.parentElement.getAttribute('id');
+  const itemId = event.target.parentElement.parentElement.getAttribute('id');
+  const todoId = itemId.split('_');
   const requestForList = () => {
-    sendHttpGetReq('todoList', structureTodoList);
+    sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
   };  
-  sendHttpPostReq('updateItemStatus', requestForList, `id=${id}` );
+  sendHttpPostReq('updateItemStatus', requestForList, `id=${itemId}` );
 };
 
 const structureItems = function(items){
@@ -22,40 +23,40 @@ const structureItems = function(items){
   }, '');
 };
 
-const formateTodo = function(todoHtml, todo){
-  const time = new Date(todo.time).toLocaleString();
+const formateTodoIndex = function(todoHtml, todo){
   return `${todoHtml}
     <div class="extractedTodo flex" id="${todo.id}" onclick="showItems()" >
       <span>
         <h3>${todo.title}</h3>
-      </span>${time}
-      <img src="./img/delete_bin.png" class="removeTodo" id="del_${todo.id}">
-    </div>
-    <div class="items">
-      ${structureItems(todo.items)}
-    </div></br>`;
+      </span>
+      <img src="./img/delete_bin.png" class="removeTodoImg" id="del_${todo.id}">
+    </div>`;
 };
 
 const structureTodoList = function(todoListString) {
   const todoList = JSON.parse(todoListString);
-  const html = todoList.reduce(formateTodo, '');
-  const parent = document.getElementById('todoList');
+  const html = todoList.reduce(formateTodoIndex, '');
+  const parent = document.getElementById('todoIndex');
   parent.innerHTML = html;
-  attachEventListener('removeTodo', 'click', removeTodo);
+  document.getElementById('todoItems').innerHTML = '';
+  attachEventListener('removeTodoImg', 'click', removeTodo);
+};
+
+const drawItems = (todoString) => {
+  const todo = JSON.parse(todoString);
+  const html = structureItems(todo.items);
+  const div = document.getElementById('todoItems');
+  div.innerHTML = html;
   attachEventListener('removeTodoItemImg', 'click', removeItem);
 };
 
 const showItems = function () {
-  const content = event.target.nextElementSibling;
-  if (content.style.display === 'block') {
-    content.style.display = 'none';
-  } else {
-    content.style.display = 'block';
-  }
+  const todoId = event.target.id;
+  sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
 };
 
 const removeTodo = function(){
-  const [, todoId] = event.target.id.split('_');  
+  const [, todoId] = event.target.id.split('_');
   sendHttpPostReq('removeTodo', () => {
     sendHttpGetReq('todoList', structureTodoList);
   }, `id=${todoId}`);
@@ -63,8 +64,9 @@ const removeTodo = function(){
 
 const removeItem = function(){
   const id = event.currentTarget.parentElement.id;
+  const [todoId] = id.split('_');
   const requestForList = () => {
-    sendHttpGetReq('todoList', structureTodoList);
+    sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
   };  
   sendHttpPostReq('removeItem', requestForList, `id=${id}` );
 };
