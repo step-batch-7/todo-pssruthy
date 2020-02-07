@@ -59,7 +59,6 @@ body {
   width :430px;
   border-radius: 5px;
   outline: none;
-  border-bottom: 1px solid green;
 }
 
 .itemInput{
@@ -93,7 +92,8 @@ body {
 }
 
 .extractedTodo {
-  background-color: rgba(128, 128, 128, 0.071);
+  background-color:  rgba(128, 128, 128, 0.071);
+  border: 2px solid  rgba(128, 128, 128, 0.071);
   border-radius: 5px;
   width: inherit;
   height: fit-content;
@@ -106,11 +106,13 @@ body {
 
 
 .extractedTodo:hover{
-  box-shadow: 2px 2px 2px black;
+  border-bottom: 2px solid rgba(100, 100, 100, 0.6);
 }
 
 #todoItems {
-  padding: 70px;
+  padding-top: 40px;
+  padding-left : 250px;
+  padding-right: 250px;
 }
 
 .item:hover{
@@ -124,7 +126,7 @@ body {
 }
 
 .removeTodoItemImg {
-  width: 3%;
+  width: 4%;
 }
 
 html, body{
@@ -170,4 +172,9 @@ html, body{
   border-bottom: gray solid 1px;
   margin-bottom: 20px;
   padding-bottom: 10px;
+}
+
+#todoIndex {
+  overflow: scroll;
+  height: 500px;
 }
