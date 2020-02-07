@@ -75,8 +75,17 @@ const drawItems = (todoString) => {
   attachEventListener('removeTodoItemImg', 'click', removeItem);
 };
 
+const updateTodoActive = function(id){
+  const activeTodos = document.querySelectorAll('.activeTodo');
+  Array.from(activeTodos).forEach( todo => {
+    todo.classList.remove('activeTodo');
+  });
+  document.getElementById(`${id}`).classList.add('activeTodo');
+};
+
 const showItems = function () {
   const todoId = event.target.id;
+  updateTodoActive(todoId);
   sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
 };
 

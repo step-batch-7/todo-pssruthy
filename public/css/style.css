@@ -186,3 +186,7 @@ html, body{
 #showTodo {
   display: none;
 }
+
+.activeTodo {
+  background-color: grey;
+}

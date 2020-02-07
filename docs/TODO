@@ -54,3 +54,5 @@ todo
 --DONE-- * Alow the user to delete a item.
 
 * Change the form to xhr for save the new todo
+  - add a input to add new item in the todo
+  - add new item and display.
