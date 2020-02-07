@@ -42,7 +42,23 @@ const structureTodoList = function(todoListString) {
   attachEventListener('removeTodoImg', 'click', removeTodo);
 };
 
+const saveNewTodo = function(){
+  
+};
+
+const drawAddTodoBoard = function(){
+  changeDisplayProperty('newTodo', 'block');
+  changeDisplayProperty('showTodo', 'none');
+};
+
+const changeDisplayProperty = function(id, property) {
+  const board = document.getElementById(`${id}`);
+  board.style.display = property;
+};
+
 const drawItems = (todoString) => {
+  changeDisplayProperty('showTodo', 'block');
+  changeDisplayProperty('newTodo', 'none');
   const todo = JSON.parse(todoString);
   const html = structureItems(todo.items);
   const div = document.getElementById('todoItems');

@@ -29,20 +29,23 @@
       </div>
       <div class="flex">
         <div id="sideBar">
-          <a href="./createNewTodo.html">
-            <div id="addTodoDiv"><img src="./img/plusIcon.png" id="addTodoIcon" alt="">
-              <span class="textCenter"> Add todo</span>
-            </div>
-          </a>
+          <div id="addTodoDiv" onclick="drawAddTodoBoard()">
+            <img src="./img/plusIcon.png" id="addTodoIcon" alt="">
+            <span class="textCenter"> Add todo</span>
+          </div>
           <hr>
           <div id="todoIndex"></div>
         </div>
         <div id="todoBoard">
-          <div id="itemSearch">
-            <input type="text" id="itemSearch" placeholder="Search item...">
+          <div id="showTodo">
+            <div id="itemSearch">
+              <input type="text" id="itemSearch" placeholder="Search item...">
+            </div>
+            <div id="todoItems">
+            </div>
           </div>
-          <div id="todoItems">
-
+          <div id="newTodo">
+            <input type="text" name="title" id="newTitle" placeholder="title...">
           </div>
 
         </div>

@@ -178,3 +178,11 @@ html, body{
   overflow: scroll;
   height: 500px;
 }
+
+#newTodo {
+  display: none;
+}
+
+#showTodo {
+  display: none;
+}
