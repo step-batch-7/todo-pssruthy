@@ -43,7 +43,16 @@ const structureTodoList = function(todoListString) {
 };
 
 const saveNewTodo = function(){
-  
+
+  const loadNewTodo = (newTodo) => {
+    sendHttpGetReq('todoList', structureTodoList);
+    drawItems(newTodo);
+  };
+
+  if(event.key === 'Enter'){
+    const title = document.querySelector('#newTitle').value;
+    sendHttpPostReq('saveNewTodo', loadNewTodo, `title=${title}`);
+  }  
 };
 
 const drawAddTodoBoard = function(){

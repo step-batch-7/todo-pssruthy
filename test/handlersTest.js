@@ -46,21 +46,13 @@ describe('POST', () => {
   before(() => {
     sinon.replace(fs, 'writeFileSync', () => {});
   });
-  it('Should redirect to home page when new todo will add', done => {
+  it('Should save and return the todo with status code 200', done => {
     request(app.serve.bind(app))
-      .post('/saveTodo')
+      .post('/saveNewTodo')
       .set('Accept', '*/*')
-      .send('title=groceries&items=tomato')
-      .expect(302, done)
-      .expect('Location', '/');
-  });
-  it('Should add and redirect new todo with multiple items', done => {
-    request(app.serve.bind(app))
-      .post('/saveTodo')
-      .set('Accept', '*/*')
-      .send('title=groceries&items=[tomato,potato]')
-      .expect(302, done)
-      .expect('Location', '/');
+      .send('title=groceries')
+      .expect(200, done)
+      .expect(/"title":"groceries"/);
   });
   it('Should update the item status when the checkbox is clicked', done => {
     request(app.serve.bind(app))
