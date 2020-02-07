@@ -1,6 +1,7 @@
 todo
 
 ---- Requirements ----
+
   * Create one or more to-do list with a title
   * View all the to-do lists
   * Add an item to a to-do list
@@ -55,4 +56,11 @@ todo
 
 * Change the form to xhr for save the new todo
 --DONE--  - add a input to add new item in the todo
-  - add new item and display.
+--DONE--  - add new item and display.
+
+* Allow the user to edit the title 
+  - onclick on the title, it will allow the user to edit
+    and on enter it will update it.
+* Allow the user to edit the items
+  - onclick on the title, it will allow the user to edit
+    and on enter it will update it.

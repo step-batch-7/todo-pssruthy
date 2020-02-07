@@ -3,6 +3,18 @@ body {
   align-items: center;
 }
 
+input{
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.509);
+  outline: none;
+  font-size: 13px;
+  text-align: center;
+}
+
+div {
+  text-align: center;
+}
+
 .center {
   position: absolute;
   top: 50%;
@@ -64,6 +76,7 @@ body {
   border-radius: 5px;
   width: inherit;
   height: fit-content;
+  font-size: 20px;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 5px;
@@ -103,7 +116,7 @@ html, body{
 #todoSearch {
   width: 400px;
   height: 25px;
-  border: black solid 1px;
+  border: rgba(0, 0, 0, 0.338) solid 1px;
   border-radius: 5px;
   margin:18px;
   outline: none;
@@ -156,4 +169,8 @@ html, body{
 
 .activeTodo {
   background-color: grey;
+}
+
+#itemInput{
+  outline: none;
 }

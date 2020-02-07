@@ -17,9 +17,7 @@ const structureItems = function(items){
 const formateTodoIndex = function(todoHtml, todo){
   return `${todoHtml}
     <div class="extractedTodo flex" id="${todo.id}" onclick="showItems()" >
-      <span>
-        <h3>${todo.title}</h3>
-      </span>
+      ${todo.title}
       <img src="./img/delete_bin.png" class="removeTodoImg" id="del_${todo.id}">
     </div>`;
 };
@@ -46,8 +44,6 @@ const changeDisplayProperty = function(id, property) {
 const drawItems = (todoString) => {
   changeDisplayProperty('showTodo', 'block');
   changeDisplayProperty('newTodo', 'none');
-  console.log(JSON.parse(todoString));
-  
   const todo = JSON.parse(todoString);
   const html = structureItems(todo.items);
   const div = document.getElementById('todoItems');
