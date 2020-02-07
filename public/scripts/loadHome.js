@@ -43,15 +43,17 @@ const structureTodoList = function(todoListString) {
 };
 
 const saveNewTodo = function(){
-
   const loadNewTodo = (newTodo) => {
-    sendHttpGetReq('todoList', structureTodoList);
+    sendHttpGetReq('todoList', (list) => {
+      structureTodoList(list);
+      updateTodoActive(JSON.parse(newTodo).id);
+    });
     drawItems(newTodo);
   };
-
   if(event.key === 'Enter'){
-    const title = document.querySelector('#newTitle').value;
-    sendHttpPostReq('saveNewTodo', loadNewTodo, `title=${title}`);
+    const title = document.querySelector('#newTitle');
+    sendHttpPostReq('saveNewTodo', loadNewTodo, `title=${title.value}`);
+    title.value = '';
   }  
 };
 
@@ -85,8 +87,8 @@ const updateTodoActive = function(id){
 
 const showItems = function () {
   const todoId = event.target.id;
-  updateTodoActive(todoId);
   sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
+  updateTodoActive(todoId);
 };
 
 const removeTodo = function(){
@@ -110,6 +112,15 @@ const attachEventListener = function(className, event, listener) {
   Array.from(tags).forEach((tag) => {
     tag.addEventListener(`${event}`, listener);
   });
+};
+
+const addNewItem = function(){
+  if(event.key === 'Enter'){
+    const item = document.querySelector('#newItem').value;
+    const todoId = document.querySelector('.activeTodo').id;
+    document.querySelector('#newItem').value = '';
+    sendHttpPostReq('addNewItem', drawItems, `todoId=${todoId}&item=${item}`);
+  }  
 };
 
 const main = function(){
