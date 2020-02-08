@@ -45,6 +45,7 @@ const drawItems = (todoString) => {
   changeDisplayProperty('showTodo', 'block');
   changeDisplayProperty('newTodo', 'none');
   const todo = JSON.parse(todoString);
+  document.getElementById('title').value = `${todo.title}`;
   const html = structureItems(todo.items);
   const div = document.getElementById('todoItems');
   div.innerHTML = html;

@@ -130,6 +130,8 @@ html, body{
   width: 30%;
   height: 100%;
   padding: 10px;
+  border-right: grey solid 1px;
+  padding-right: 20px;
 }
 
 #todoBoard {
@@ -181,4 +183,9 @@ html, body{
 
 .editItemInput {
   text-align: left;
+}
+
+#title {
+  font-size: 30px;
+  font-weight: bolder;
 }
