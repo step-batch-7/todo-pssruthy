@@ -45,3 +45,14 @@ const addNewItem = function(){
     sendHttpPostReq('addNewItem', drawItems, `todoId=${todoId}&item=${item}`);
   }  
 };
+
+const editItem = function(){
+  if(event.key === 'Enter'){
+    const inputId = event.target.id;
+    const [, itemId] = inputId.match(/item(.*)$/);
+    const item = document.querySelector(`#${inputId}`).value;
+    const todoId = document.querySelector('.activeTodo').id;
+    const reqBody = `todoId=${todoId}&itemId=${itemId}&item=${item}`;
+    sendHttpPostReq('editItem', drawItems, reqBody);
+  }
+};

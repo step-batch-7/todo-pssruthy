@@ -7,7 +7,7 @@ const structureItems = function(items){
     <div class="item flex spaceBetween" id="${id}">
     <div>
     <input type="checkbox" onclick="updateItemStatus()" ${status}>
-    <input type="type" value=${item} class="editItemInput">
+    <input type="type" value="${item}" class="editItemInput" onkeydown="editItem()" id="item${id}">
     </div>
     <img src="./img/minus.png" class="removeTodoItemImg" id="del_${id}">
     </div>`; 

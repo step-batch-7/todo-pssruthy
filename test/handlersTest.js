@@ -83,6 +83,14 @@ describe('POST', () => {
       .expect(200, done)
       .expect(/"item":"item"/);
   });
+  it('Should edit a item in the todo and returns the updated todo', done => {
+    request(app.serve.bind(app))
+      .post('/editItem')
+      .set('Accept', '*/*')
+      .send('todoId=2&itemId=2_1&item=hai')
+      .expect(200, done)
+      .expect(/"item":"hai"/);
+  });
   
   after(() => {
     sinon.restore();
