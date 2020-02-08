@@ -58,9 +58,9 @@ todo
 --DONE--  - add a input to add new item in the todo
 --DONE--  - add new item and display.
 
-* Allow the user to edit the title 
+--DONE-- * Allow the user to edit the title 
   - onclick on the title, it will allow the user to edit
     and on enter it will update it.
-* Allow the user to edit the items
+--DONE-- * Allow the user to edit the items
   - onclick on the title, it will allow the user to edit
     and on enter it will update it.
