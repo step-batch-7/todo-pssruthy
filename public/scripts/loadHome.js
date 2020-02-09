@@ -22,7 +22,7 @@ const formateTodoIndex = function(todoHtml, todo){
     </div>`;
 };
 
-const structureTodoList = function(todoListString) {
+const drawTodoList = function(todoListString) {
   const todoList = JSON.parse(todoListString);
   const html = todoList.reduce(formateTodoIndex, '');
   const parent = document.getElementById('todoIndex');
@@ -74,5 +74,5 @@ const attachEventListener = function(className, event, listener) {
 };
 
 const main = function(){
-  sendHttpGetReq('todoList', structureTodoList);
+  sendHttpGetReq('todoList', drawTodoList);
 };

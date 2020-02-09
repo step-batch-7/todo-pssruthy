@@ -9,7 +9,7 @@ const updateItemStatus = function() {
 
 const loadUpdatedTodo = (newTodo) => {
   sendHttpGetReq('todoList', (list) => {
-    structureTodoList(list);
+    drawTodoList(list);
     updateTodoActive(JSON.parse(newTodo).id);
     drawItems(newTodo);
   });
@@ -26,7 +26,7 @@ const saveNewTodo = function(){
 const removeTodo = function(){
   const [, todoId] = event.target.id.split('_');
   sendHttpPostReq('removeTodo', () => {
-    sendHttpGetReq('todoList', structureTodoList);
+    sendHttpGetReq('todoList', drawTodoList);
   }, `id=${todoId}`);
 };
 

@@ -64,3 +64,16 @@ todo
 --DONE-- * Allow the user to edit the items
   - onclick on the title, it will allow the user to edit
     and on enter it will update it.
+
+* Refract the code
+  - refract the variable and function names
+  - Refract classes for html 
+  - Remove the complexity of the code
+
+ * Update the requests from client side.
+  - For post request, return back success/unsuccess, or the id
+    of the todo which updated.
+
+* Store the todo list somewhere when the server will return the whole list. 
+
+    
