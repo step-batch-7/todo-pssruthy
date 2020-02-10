@@ -76,3 +76,19 @@ todo
 
 * Store the todo list somewhere when the server will return the whole list.
 * Remember the active todo.
+
+
+-----------------------------------------------------
+
+* In not found handler, set the status code and return.
+* change the function names.
+* Pull functions for filter method in todoList & todo class.
+* remove repeating functions from todoList class.
+* Pull class for handlers.-----> data store
+
+* Pull styles from html file
+* Auto focus is not working.
+* Remove display item while searching.
+* Listen the events with the id.
+* Changing property of html classes. -----> display
+* Refract the updateTodoActive functions.
