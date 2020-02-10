@@ -70,3 +70,8 @@ const updateTitle = function(){
     sendHttpPostReq('editTitle', loadUpdatedTodo, reqBody);
   }
 };
+
+const searchTodo = function() {
+  const value = document.getElementById('todoSearch').value;
+  sendHttpGetReq(`searchTodo?text=${value}`, drawTodoList);
+};

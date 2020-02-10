@@ -75,5 +75,4 @@ todo
     of the todo which updated.
 
 * Store the todo list somewhere when the server will return the whole list.
-
-    
+* Remember the active todo.
