@@ -74,6 +74,6 @@ todo
   - For post request, return back success/unsuccess, or the id
     of the todo which updated.
 
-* Store the todo list somewhere when the server will return the whole list. 
+* Store the todo list somewhere when the server will return the whole list.
 
     
