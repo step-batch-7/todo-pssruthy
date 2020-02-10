@@ -26,7 +26,10 @@ const saveNewTodo = function(){
 const removeTodo = function(){
   const [, todoId] = event.target.id.split('_');
   sendHttpPostReq('removeTodo', () => {
-    sendHttpGetReq('todoList', drawTodoList);
+    sendHttpGetReq('todoList', (todoList) => {
+      drawTodoList(todoList);
+      drawAddTodoBoard();
+    });
   }, `id=${todoId}`);
 };
 
@@ -38,6 +41,7 @@ const removeItem = function(){
   };  
   sendHttpPostReq('removeItem', requestForList, `id=${id}` );
 };
+
 const addNewItem = function(){
   if(event.key === 'Enter'){
     const item = document.querySelector('#newItem').value;

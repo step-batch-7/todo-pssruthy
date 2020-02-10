@@ -75,4 +75,5 @@ const attachEventListener = function(className, event, listener) {
 
 const main = function(){
   sendHttpGetReq('todoList', drawTodoList);
+  drawAddTodoBoard();
 };
