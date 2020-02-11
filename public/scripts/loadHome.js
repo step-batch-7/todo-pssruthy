@@ -16,8 +16,8 @@ const structureItems = function(items) {
 
 const formateTodoIndex = function(todoHtml, todo) {
   return `${todoHtml}
-    <div class="extractedTodo flex" id="${todo.id}" onclick="showItems()" >
-      ${todo.title}
+    <div class="extractedTodo flex" id="${todo.id}" >
+      <div onclick="showItems(${todo.id})" >${todo.title}</div>
       <img src="./img/delete_bin.png" class="removeTodoImg" id="del_${todo.id}">
     </div>`;
 };
@@ -65,8 +65,7 @@ const updateTodoActive = function(id) {
   document.getElementById(`${id}`).classList.add('activeTodo');
 };
 
-const showItems = function() {
-  const todoId = event.target.id;
+const showItems = function(todoId) {
   sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
   updateTodoActive(todoId);
 };

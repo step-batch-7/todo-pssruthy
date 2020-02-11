@@ -89,8 +89,11 @@ todo
 
 * to make a dataBase directory to store todoHistory
 * Pull styles from html file
-* Auto focus is not working.
+--Done-- Auto focus is not working.
 --Done-- Remove display item while searching.
 * Listen the events with the id.
-* Changing property of html classes. -----> display
-* Refract the updateTodoActive functions.
+--Done-- Changing property of html classes. -----> display
+* Refactor the updateTodoActive functions.
+
+--Done--  after deletion of todo  it is returning error.
+* not clearing the task lists after deletion.
