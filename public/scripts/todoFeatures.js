@@ -1,58 +1,62 @@
 const updateItemStatus = function() {
   const itemId = event.target.parentElement.parentElement.getAttribute('id');
-  const todoId = itemId.split('_');
+  const [todoId] = itemId.split('_');
   const requestForList = () => {
     sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
-  };  
-  sendHttpPostReq('updateItemStatus', requestForList, `id=${itemId}` );
+  };
+  sendHttpPostReq('updateItemStatus', requestForList, `id=${itemId}`);
 };
 
-const loadUpdatedTodo = (newTodo) => {
-  sendHttpGetReq('todoList', (list) => {
+const loadUpdatedTodo = newTodo => {
+  sendHttpGetReq('todoList', list => {
     drawTodoList(list);
     updateTodoActive(JSON.parse(newTodo).id);
     drawItems(newTodo);
   });
 };
 
-const saveNewTodo = function(){
-  if(event.key === 'Enter'){
+const saveNewTodo = function() {
+  if (event.key === 'Enter') {
     const title = document.querySelector('#newTitle');
     sendHttpPostReq('saveNewTodo', loadUpdatedTodo, `title=${title.value}`);
     title.value = '';
-  }  
+  }
 };
 
-const removeTodo = function(){
+const removeTodo = function() {
   const [, todoId] = event.target.id.split('_');
-  sendHttpPostReq('removeTodo', () => {
-    sendHttpGetReq('todoList', (todoList) => {
-      drawTodoList(todoList);
-      drawAddTodoBoard();
-    });
-  }, `id=${todoId}`);
+  sendHttpPostReq(
+    'removeTodo',
+    () => {
+      sendHttpGetReq('todoList', todoList => {
+        drawTodoList(todoList);
+        modifyVisibility();
+      });
+    },
+    `id=${todoId}`
+  );
 };
 
-const removeItem = function(){
+const removeItem = function() {
   const id = event.currentTarget.parentElement.id;
   const [todoId] = id.split('_');
   const requestForList = () => {
     sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
-  };  
-  sendHttpPostReq('removeItem', requestForList, `id=${id}` );
+  };
+  sendHttpPostReq('removeItem', requestForList, `id=${id}`);
 };
 
-const addNewItem = function(){
-  if(event.key === 'Enter'){
+const addNewItem = function() {
+  if (event.key === 'Enter') {
     const item = document.querySelector('#newItem').value;
     const todoId = document.querySelector('.activeTodo').id;
     document.querySelector('#newItem').value = '';
     sendHttpPostReq('addNewItem', drawItems, `todoId=${todoId}&item=${item}`);
-  }  
+  }
 };
 
-const editItem = function(){
-  if(event.key === 'Enter'){
+const editItem = function() {
+  if (event.key === 'Enter') {
     const inputId = event.target.id;
     const [, itemId] = inputId.match(/item(.*)$/);
     const item = document.querySelector(`#${inputId}`).value;
@@ -62,8 +66,8 @@ const editItem = function(){
   }
 };
 
-const updateTitle = function(){
-  if(event.key === 'Enter'){
+const updateTitle = function() {
+  if (event.key === 'Enter') {
     const title = document.querySelector('#title').value;
     const todoId = document.querySelector('.activeTodo').id;
     const reqBody = `todoId=${todoId}&title=${title}`;

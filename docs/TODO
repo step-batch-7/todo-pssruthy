@@ -82,10 +82,12 @@ todo
 
 * In not found handler, set the status code and return.
 * change the function names.
-* Pull functions for filter method in todoList & todo class.
-* remove repeating functions from todoList class.
+--Done-- Pull functions for filter method in todoList & todo class.
 * Pull class for handlers.-----> data store
 
+--Done-- renamed and modified displayTodoBoard to modifiyVisibiliy
+
+* to make a dataBase directory to store todoHistory
 * Pull styles from html file
 * Auto focus is not working.
 * Remove display item while searching.
