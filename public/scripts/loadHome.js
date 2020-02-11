@@ -58,11 +58,9 @@ const drawItems = todoString => {
 };
 
 const updateTodoActive = function(id) {
-  const activeTodos = document.querySelectorAll('.activeTodo');
-  Array.from(activeTodos).forEach(todo => {
-    todo.classList.remove('activeTodo');
-  });
-  document.getElementById(`${id}`).classList.add('activeTodo');
+  const activeTodo = document.querySelector('.activeTodo');
+  activeTodo && activeTodo.classList.remove('activeTodo'); 
+  document.getElementById(id).classList.add('activeTodo');
 };
 
 const showItems = function(todoId) {

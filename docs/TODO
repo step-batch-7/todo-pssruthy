@@ -93,7 +93,7 @@ todo
 --Done-- Remove display item while searching.
 * Listen the events with the id.
 --Done-- Changing property of html classes. -----> display
-* Refactor the updateTodoActive functions.
+--Done-- Refactor the updateTodoActive functions.
 
 --Done--  after deletion of todo  it is returning error.
 --Done-- not clearing the task lists after deletion.
