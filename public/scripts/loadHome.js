@@ -9,7 +9,7 @@ const structureItems = function(items) {
     <input type="checkbox" onclick="updateItemStatus()" ${done}>
     <input type="type" value="${task}" class="editItemInput" onkeydown="editItem()" id="item${id}">
     </div>
-    <img src="./img/minus.png" class="removeTodoItemImg" id="del_${id}">
+    <img src="./img/cross.png" class="removeTodoItemImg" id="del_${id}">
     </div>`;
   }, '');
 };
@@ -75,6 +75,13 @@ const attachEventListener = function(selector, event, listener) {
   });
 };
 
+const setAutocomplete = function(selector, attribute, value) {
+  const tags = document.querySelectorAll(selector);
+  Array.from(tags).forEach(tag => {
+    tag[attribute] = value;
+  });
+};
+
 const main = function() {
   sendHttpGetReq('todoList', drawTodoList);
   defaultVisibility();
@@ -83,4 +90,5 @@ const main = function() {
   attachEventListener('#title', 'keydown', updateTitle);
   attachEventListener('#newItem', 'keydown', addNewItem);
   attachEventListener('#newTitle', 'keydown', saveNewTodo);
+  setAutocomplete('input', 'autocomplete', 'off');
 };

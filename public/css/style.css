@@ -1,6 +1,7 @@
 body {
   font-family: serif;
   align-items: center;
+  font-size: 1.5em;
 }
 
 input {
@@ -79,10 +80,10 @@ div {
 
 .extractedTodo > div {
   width: 95%;
-  height:inherit;
+  height: inherit;
   text-align: left;
   font-size: 20px;
-  padding:10px 10px 0px;
+  padding: 10px 10px 0px;
   justify-content: space-between;
 }
 
@@ -102,13 +103,20 @@ div {
 }
 
 .removeTodoImg {
-  width: 33px;
-  height: 35px;
-  padding:5px;
+  width: 4%;
+  height: 4%;
+  padding:10px;
 }
 
 .removeTodoItemImg {
-  width: 4%;
+  width: 2%;
+  height: 2%;
+  margin:auto 10px;
+  display:none;
+}
+
+.item:hover > img {
+  display: block;
 }
 
 html,
@@ -122,7 +130,6 @@ body {
   border: rgba(0, 0, 0, 0.338) solid 1px;
   border-radius: 5px;
   margin: 18px;
-  outline: none;
 }
 
 #usrLoginIcon {
@@ -141,6 +148,7 @@ body {
 #todoBoard {
   width: 70%;
   height: 100%;
+  padding: 5% 10%;
 }
 
 #addTodoIcon {
@@ -176,17 +184,38 @@ body {
   background-color: grey;
 }
 
+#newTitle,
 #newItem {
-  outline: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.509);
+  border-bottom: 2px solid #aaa;
+}
+
+#newTitle,
+#newItem:focus {
+  border-bottom: 2px solid black;
 }
 
 #newTitle {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.509);
+  width: 25%;
+  position: sticky;
+  font-size: 1.5rem;
+}
+
+#newItem {
+  width: 20%;
+}
+
+input[type="checkbox"] {
+  zoom: 1.2;
+}
+
+input:checked + input {
+  color: #aaa;
 }
 
 .editItemInput {
+  padding-left:10px;
   text-align: left;
+  font-size: 1rem;
 }
 
 #title {
