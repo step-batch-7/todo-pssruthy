@@ -96,4 +96,4 @@ todo
 * Refactor the updateTodoActive functions.
 
 --Done--  after deletion of todo  it is returning error.
-* not clearing the task lists after deletion.
+--Done-- not clearing the task lists after deletion.

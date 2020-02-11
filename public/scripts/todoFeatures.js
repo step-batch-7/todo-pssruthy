@@ -25,16 +25,14 @@ const saveNewTodo = function() {
 
 const removeTodo = function() {
   const [, todoId] = event.target.id.split('_');
-  sendHttpPostReq(
-    'removeTodo',
-    () => {
-      sendHttpGetReq('todoList', todoList => {
-        drawTodoList(todoList);
-        modifyVisibility();
-      });
-    },
-    `id=${todoId}`
-  );
+  const deleteTodoFromUI = () => {
+    const activeTodo = document.querySelector('.activeTodo');
+    if (activeTodo && todoId === activeTodo.id) {
+      defaultVisibility();
+    }
+    document.getElementById(todoId).remove();
+  };
+  sendHttpPostReq('removeTodo', deleteTodoFromUI, `id=${todoId}`);
 };
 
 const removeItem = function() {
