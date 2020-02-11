@@ -90,7 +90,7 @@ todo
 * to make a dataBase directory to store todoHistory
 * Pull styles from html file
 * Auto focus is not working.
-* Remove display item while searching.
+--Done-- Remove display item while searching.
 * Listen the events with the id.
 * Changing property of html classes. -----> display
 * Refract the updateTodoActive functions.
