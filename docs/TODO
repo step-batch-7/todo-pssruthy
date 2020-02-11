@@ -88,7 +88,6 @@ todo
 --Done-- renamed and modified displayTodoBoard to modifiyVisibiliy
 
 --Done-- to make a dataBase directory to store todoHistory
-* Pull styles from html file
 --Done-- Auto focus is not working.
 --Done-- Remove display item while searching.
 * Listen the events with the id.

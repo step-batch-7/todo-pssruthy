@@ -21,7 +21,7 @@
           <img src="./img/to-do-icon.png" alt="" width="10%">
         </div>
         <div>
-          <input type="search" id="todoSearch" placeholder="Search todo..." autofocus oninput="searchTodo()">
+          <input type="search" id="todoSearch" placeholder="Search todo..." autofocus>
         </div>
         <div class="flex">
           <img src="./img/user.png" alt="" id="usrLoginIcon">
@@ -30,7 +30,7 @@
       </div>
       <div class="flex">
         <div id="sideBar">
-          <div id="addTodoDiv" >
+          <div id="addTodoDiv">
             <img src="./img/plusIcon.png" id="addTodoIcon" alt="">
             <span class="textCenter"> Add todo</span>
           </div>
@@ -39,14 +39,14 @@
         </div>
         <div id="todoBoard">
           <div id="showTodo">
-            <div><input type="text" id="title" onkeydown="updateTitle()"></div><br>
+            <div><input type="text" id="title" autocomplete="off"></div><br>
             <div class="textCenter" id="itemInput">
-              <input type="text" name="" id="newItem" onkeydown="addNewItem()" placeholder="item and enter"></div>
+              <input type="text" name="" id="newItem" placeholder="item and enter"></div>
             <div id="todoItems">
             </div>
           </div>
           <div id="newTodo">
-            <input type="text" id="newTitle" placeholder="title..." onkeydown="saveNewTodo()" autofocus>
+            <input type="text" id="newTitle" placeholder="title..." autofocus>
           </div>
 
         </div>

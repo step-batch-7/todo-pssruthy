@@ -66,7 +66,9 @@ const editItem = function() {
 
 const updateTitle = function() {
   if (event.key === 'Enter') {
-    const title = document.querySelector('#title').value;
+    const titleTag = document.querySelector('#title');
+    const title = titleTag.value;
+    titleTag.blur();
     const todoId = document.querySelector('.activeTodo').id;
     const reqBody = `todoId=${todoId}&title=${title}`;
     sendHttpPostReq('editTitle', loadUpdatedTodo, reqBody);

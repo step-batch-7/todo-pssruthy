@@ -79,4 +79,8 @@ const main = function() {
   sendHttpGetReq('todoList', drawTodoList);
   defaultVisibility();
   attachEventListener('#addTodoDiv', 'click', defaultVisibility);
+  attachEventListener('#todoSearch', 'input', searchTodo);
+  attachEventListener('#title', 'keydown', updateTitle);
+  attachEventListener('#newItem', 'keydown', addNewItem);
+  attachEventListener('#newTitle', 'keydown', saveNewTodo);
 };
