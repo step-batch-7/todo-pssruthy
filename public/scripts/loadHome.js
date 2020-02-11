@@ -1,13 +1,13 @@
 const structureItems = function(items) {
   return items.reduce((html, itemInfo) => {
-    const { id, isDone, item } = itemInfo;
-    const status = isDone ? 'checked' : 'unchecked';
+    const { id, status, task } = itemInfo;
+    const done = status ? 'checked' : 'unchecked';
     return `${html}
     </br>
     <div class="item flex spaceBetween" id="${id}">
     <div>
-    <input type="checkbox" onclick="updateItemStatus()" ${status}>
-    <input type="type" value="${item}" class="editItemInput" onkeydown="editItem()" id="item${id}">
+    <input type="checkbox" onclick="updateItemStatus()" ${done}>
+    <input type="type" value="${task}" class="editItemInput" onkeydown="editItem()" id="item${id}">
     </div>
     <img src="./img/minus.png" class="removeTodoItemImg" id="del_${id}">
     </div>`;
@@ -59,7 +59,7 @@ const drawItems = todoString => {
 
 const updateTodoActive = function(id) {
   const activeTodo = document.querySelector('.activeTodo');
-  activeTodo && activeTodo.classList.remove('activeTodo'); 
+  activeTodo && activeTodo.classList.remove('activeTodo');
   document.getElementById(id).classList.add('activeTodo');
 };
 

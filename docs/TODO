@@ -98,6 +98,5 @@ todo
 --Done--  after deletion of todo  it is returning error.
 --Done-- not clearing the task lists after deletion.
 
-* make a new todo item class
-* pass the item related features to item class
-* 
+--Done--  make a new todo item class
+            - pass the item related features to item class
