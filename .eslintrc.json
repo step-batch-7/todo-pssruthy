@@ -61,7 +61,7 @@
         "no-eval": "error",
         "no-implicit-globals": "error",
         "prefer-const": "error",
-        "no-magic-numbers": "error",
+        "no-magic-numbers": "off",
         "no-process-exit": "error",
         "no-process-env": "error",
         "no-return-assign": "error",
@@ -86,7 +86,7 @@
         "no-param-reassign": "error",
         "space-infix-ops": "error",
         "no-multi-spaces": "error",
-        "object-curly-spacing": "error",
+        "object-curly-spacing": "off",
         "semi-spacing": "error",
         "no-multiple-empty-lines": [
             "error",
