@@ -28,7 +28,6 @@ const drawTodoList = function(todoListString) {
   const parent = document.getElementById('todoIndex');
   parent.innerHTML = html;
   document.getElementById('todoItems').innerHTML = '';
-  // drawAddTodoBoard();
   attachEventListener('removeTodoImg', 'click', removeTodo);
 };
 
