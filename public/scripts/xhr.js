@@ -16,3 +16,11 @@ const sendHttpGetReq = function(url, callback) {
 const sendHttpPostReq = function(url, body, callback) {
   sendReq('POST', url, JSON.stringify(body), callback);
 };
+
+const sendHttpPatchReq = function(url, body, callback) {
+  sendReq('PATCH', url, JSON.stringify(body), callback);
+};
+
+const sendHttpDeleteReq = function(url, body, callback) {
+  sendReq('DELETE', url, JSON.stringify(body), callback);
+};

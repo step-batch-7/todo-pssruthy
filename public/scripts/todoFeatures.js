@@ -4,7 +4,7 @@ const setValue = (selector, value) => {
 };
 
 const updateItemStatus = function(todoId, itemId) {
-  sendHttpPostReq('updateItemStatus', { todoId, itemId }, () => {});
+  sendHttpPatchReq('updateItemStatus', { todoId, itemId }, () => {});
 };
 
 const loadUpdatedTodo = newTodo => {
@@ -31,11 +31,11 @@ const removeTodo = function(todoId) {
     }
     document.getElementById(todoId).remove();
   };
-  sendHttpPostReq('removeTodo', { todoId }, deleteTodoFromUI);
+  sendHttpDeleteReq('removeTodo', { todoId }, deleteTodoFromUI);
 };
 
 const removeItem = function(todoId, itemId) {
-  sendHttpPostReq('removeItem', { todoId, itemId }, () => {});
+  sendHttpDeleteReq('removeItem', { todoId, itemId }, () => {});
   sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
 };
 
@@ -52,7 +52,7 @@ const editItem = function(itemId) {
   if (event.key === 'Enter') {
     const item = event.target.value;
     const todoId = getActiveTodoId();
-    sendHttpPostReq('editItem', { todoId, itemId, item }, drawItems);
+    sendHttpPatchReq('editItem', { todoId, itemId, item }, drawItems);
   }
 };
 
@@ -61,7 +61,7 @@ const updateTitle = function() {
     const title = getValue('#title');
     event.target.blur();
     const todoId = getActiveTodoId();
-    sendHttpPostReq('editTitle', { todoId, title }, loadUpdatedTodo);
+    sendHttpPatchReq('editTitle', { todoId, title }, loadUpdatedTodo);
   }
 };
 
