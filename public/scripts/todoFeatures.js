@@ -1,3 +1,8 @@
+const getValue = selector => document.querySelector(selector).value;
+const setValue = (selector, value) => {
+  document.querySelector(selector).value = value;
+};
+
 const updateItemStatus = function(todoId, itemId) {
   const requestForList = () => {
     sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
@@ -15,9 +20,9 @@ const loadUpdatedTodo = newTodo => {
 
 const saveNewTodo = function() {
   if (event.key === 'Enter') {
-    const title = document.querySelector('#newTitle');
-    sendHttpPostReq('saveNewTodo', `title=${title.value}`, loadUpdatedTodo);
-    title.value = '';
+    const title = getValue('#newTitle');
+    sendHttpPostReq('saveNewTodo', `title=${title}`, loadUpdatedTodo);
+    setValue('#newTitle', '');
   }
 };
 
@@ -41,9 +46,9 @@ const removeItem = function(todoId, itemId) {
 
 const addNewItem = function() {
   if (event.key === 'Enter') {
-    const item = document.querySelector('#newItem').value;
+    const item = getValue('#newItem');
     const todoId = document.querySelector('.activeTodo').id;
-    document.querySelector('#newItem').value = '';
+    setValue('#newItem', '');
     sendHttpPostReq('addNewItem', `todoId=${todoId}&item=${item}`, drawItems);
   }
 };
@@ -52,7 +57,7 @@ const editItem = function() {
   if (event.key === 'Enter') {
     const inputId = event.target.id;
     const [, itemId] = inputId.match(/item(.*)$/);
-    const item = document.querySelector(`#${inputId}`).value;
+    const item = getValue(`#${inputId}`);
     const todoId = document.querySelector('.activeTodo').id;
     const reqBody = `todoId=${todoId}&itemId=${itemId}&item=${item}`;
     sendHttpPostReq('editItem', reqBody, drawItems);
@@ -61,9 +66,8 @@ const editItem = function() {
 
 const updateTitle = function() {
   if (event.key === 'Enter') {
-    const titleTag = document.querySelector('#title');
-    const title = titleTag.value;
-    titleTag.blur();
+    const title = getValue('#title');
+    event.target.blur();
     const todoId = document.querySelector('.activeTodo').id;
     const reqBody = `todoId=${todoId}&title=${title}`;
     sendHttpPostReq('editTitle', reqBody, loadUpdatedTodo);
@@ -71,7 +75,7 @@ const updateTitle = function() {
 };
 
 const searchTodo = function() {
-  const value = document.getElementById('todoSearch').value;
+  const value = getValue('#todoSearch');
   sendHttpGetReq(`searchTodo?text=${value}`, drawTodoList);
   defaultVisibility();
 };
