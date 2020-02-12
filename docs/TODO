@@ -90,7 +90,7 @@ todo
 --Done-- to make a dataBase directory to store todoHistory
 --Done-- Auto focus is not working.
 --Done-- Remove display item while searching.
-* Listen the events with the id.
+--Done-- Listen the events with the id.
 --Done-- Changing property of html classes. -----> display
 --Done-- Refactor the updateTodoActive functions.
 

@@ -1,3 +1,5 @@
+const getActiveTodoId = () => document.querySelector('.activeTodo').id;
+
 const structureItems = function(items) {
   return items.reduce((html, itemInfo) => {
     const { id, status, task } = itemInfo;
@@ -6,19 +8,19 @@ const structureItems = function(items) {
     </br>
     <div class="item flex spaceBetween" id="${id}">
     <div>
-    <input type="checkbox" onclick="updateItemStatus()" ${done}>
+    <input type="checkbox" onclick="updateItemStatus(${getActiveTodoId()},'${id}')" ${done}>
     <input type="type" value="${task}" class="editItemInput" onkeydown="editItem()" id="item${id}">
     </div>
-    <img src="./img/cross.png" class="removeTodoItemImg" id="del_${id}">
+    <img src="./img/cross.png" class="removeTodoItemImg" onclick="removeItem(${getActiveTodoId()},'${id}')">
     </div>`;
   }, '');
 };
 
-const formateTodoIndex = function(todoHtml, todo) {
+const formateTodoIndex = function(todoHtml, { id, title }) {
   return `${todoHtml}
-    <div class="extractedTodo flex" id="${todo.id}" >
-      <div onclick="showItems(${todo.id})" >${todo.title}</div>
-      <img src="./img/delete_bin.png" class="removeTodoImg" id="del_${todo.id}">
+    <div class="extractedTodo flex" id="${id}" >
+      <div onclick="showItems(${id})" >${title}</div>
+      <img src="./img/delete_bin.png" class="removeTodoImg" onclick=removeTodo(${id})>
     </div>`;
 };
 
@@ -28,7 +30,6 @@ const drawTodoList = function(todoListString) {
   const parent = document.getElementById('todoIndex');
   parent.innerHTML = html;
   document.getElementById('todoItems').innerHTML = '';
-  attachEventListener('.removeTodoImg', 'click', removeTodo);
 };
 
 const modifyVisibility = function(selectorAndProperty) {
@@ -54,7 +55,6 @@ const drawItems = todoString => {
   const html = structureItems(todo.items);
   const div = document.getElementById('todoItems');
   div.innerHTML = html;
-  attachEventListener('.removeTodoItemImg', 'click', removeItem);
 };
 
 const updateTodoActive = function(id) {

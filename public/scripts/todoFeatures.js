@@ -1,6 +1,4 @@
-const updateItemStatus = function() {
-  const itemId = event.target.parentElement.parentElement.getAttribute('id');
-  const [todoId] = itemId.split('_');
+const updateItemStatus = function(todoId, itemId) {
   const requestForList = () => {
     sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
   };
@@ -23,11 +21,10 @@ const saveNewTodo = function() {
   }
 };
 
-const removeTodo = function() {
-  const [, todoId] = event.target.id.split('_');
+const removeTodo = function(todoId) {
   const deleteTodoFromUI = () => {
     const activeTodo = document.querySelector('.activeTodo');
-    if (activeTodo && todoId === activeTodo.id) {
+    if (activeTodo && `${todoId}` === activeTodo.id) {
       defaultVisibility();
     }
     document.getElementById(todoId).remove();
@@ -35,13 +32,11 @@ const removeTodo = function() {
   sendHttpPostReq('removeTodo', `id=${todoId}`, deleteTodoFromUI);
 };
 
-const removeItem = function() {
-  const id = event.currentTarget.parentElement.id;
-  const [todoId] = id.split('_');
+const removeItem = function(todoId, itemId) {
   const requestForList = () => {
     sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
   };
-  sendHttpPostReq('removeItem', `id=${id}`, requestForList);
+  sendHttpPostReq('removeItem', `id=${itemId}`, requestForList);
 };
 
 const addNewItem = function() {
