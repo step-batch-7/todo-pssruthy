@@ -104,5 +104,9 @@ todo
 * Modify integration test.
 * Write unit level test.
 
+* Change toJSON function in todoList
+* Use delete method instead of Post in deletion
+* Use Patch method instead of Post in edit
+
 * search feature by task.
 * search case insensitive.
