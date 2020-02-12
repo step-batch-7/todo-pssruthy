@@ -9,7 +9,7 @@ const structureItems = function(items) {
     <div class="item flex spaceBetween" id="${id}">
     <div>
     <input type="checkbox" onclick="updateItemStatus(${getActiveTodoId()},'${id}')" ${done}>
-    <input type="type" value="${task}" class="editItemInput" onkeydown="editItem()" id="item${id}">
+    <input type="type" value="${task}" class="editItemInput" onkeydown="editItem('${id}')" >
     </div>
     <img src="./img/cross.png" class="removeTodoItemImg" onclick="removeItem(${getActiveTodoId()},'${id}')">
     </div>`;

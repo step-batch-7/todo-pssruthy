@@ -4,10 +4,7 @@ const setValue = (selector, value) => {
 };
 
 const updateItemStatus = function(todoId, itemId) {
-  const requestForList = () => {
-    sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
-  };
-  sendHttpPostReq('updateItemStatus', { todoId, itemId }, requestForList);
+  sendHttpPostReq('updateItemStatus', { todoId, itemId }, () => {});
 };
 
 const loadUpdatedTodo = newTodo => {
@@ -38,27 +35,23 @@ const removeTodo = function(todoId) {
 };
 
 const removeItem = function(todoId, itemId) {
-  const requestForList = () => {
-    sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
-  };
-  sendHttpPostReq('removeItem', { todoId, itemId }, requestForList);
+  sendHttpPostReq('removeItem', { todoId, itemId }, () => {});
+  sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
 };
 
 const addNewItem = function() {
   if (event.key === 'Enter') {
     const item = getValue('#newItem');
-    const todoId = document.querySelector('.activeTodo').id;
+    const todoId = getActiveTodoId();
     setValue('#newItem', '');
     sendHttpPostReq('addNewItem', { todoId, item }, drawItems);
   }
 };
 
-const editItem = function() {
+const editItem = function(itemId) {
   if (event.key === 'Enter') {
-    const inputId = event.target.id;
-    const [, itemId] = inputId.match(/item(.*)$/);
-    const item = getValue(`#${inputId}`);
-    const todoId = document.querySelector('.activeTodo').id;
+    const item = event.target.value;
+    const todoId = getActiveTodoId();
     sendHttpPostReq('editItem', { todoId, itemId, item }, drawItems);
   }
 };
@@ -67,7 +60,7 @@ const updateTitle = function() {
   if (event.key === 'Enter') {
     const title = getValue('#title');
     event.target.blur();
-    const todoId = document.querySelector('.activeTodo').id;
+    const todoId = getActiveTodoId();
     sendHttpPostReq('editTitle', { todoId, title }, loadUpdatedTodo);
   }
 };

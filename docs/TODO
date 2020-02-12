@@ -80,10 +80,7 @@ todo
 
 -----------------------------------------------------
 
-* In not found handler, set the status code and return.
-* change the function names.
 --Done-- Pull functions for filter method in todoList & todo class.
-* Pull class for handlers.-----> data store
 
 --Done-- renamed and modified displayTodoBoard to modifiyVisibiliy
 
@@ -103,5 +100,9 @@ todo
 --Done-- instead of passing data in query string ,pass the data as json object
 --Done-- pass item and todoId directly from functions.
 
-* Modify integration test
+* focus after xhr requests.
+* Modify integration test.
 * Write unit level test.
+
+* search feature by task.
+* search case insensitive.
