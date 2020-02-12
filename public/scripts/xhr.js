@@ -13,4 +13,6 @@ const sendHttpGetReq = function(url, callback) {
   sendReq('GET', url, '', callback);
 };
 
-const sendHttpPostReq = sendReq.bind(null, 'POST');
+const sendHttpPostReq = function(url, body, callback) {
+  sendReq('POST', url, JSON.stringify(body), callback);
+};

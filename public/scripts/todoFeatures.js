@@ -7,7 +7,7 @@ const updateItemStatus = function(todoId, itemId) {
   const requestForList = () => {
     sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
   };
-  sendHttpPostReq('updateItemStatus', `id=${itemId}`, requestForList);
+  sendHttpPostReq('updateItemStatus', { todoId, itemId }, requestForList);
 };
 
 const loadUpdatedTodo = newTodo => {
@@ -21,7 +21,7 @@ const loadUpdatedTodo = newTodo => {
 const saveNewTodo = function() {
   if (event.key === 'Enter') {
     const title = getValue('#newTitle');
-    sendHttpPostReq('saveNewTodo', `title=${title}`, loadUpdatedTodo);
+    sendHttpPostReq('saveNewTodo', { title }, loadUpdatedTodo);
     setValue('#newTitle', '');
   }
 };
@@ -34,14 +34,14 @@ const removeTodo = function(todoId) {
     }
     document.getElementById(todoId).remove();
   };
-  sendHttpPostReq('removeTodo', `id=${todoId}`, deleteTodoFromUI);
+  sendHttpPostReq('removeTodo', { todoId }, deleteTodoFromUI);
 };
 
 const removeItem = function(todoId, itemId) {
   const requestForList = () => {
     sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
   };
-  sendHttpPostReq('removeItem', `id=${itemId}`, requestForList);
+  sendHttpPostReq('removeItem', { todoId, itemId }, requestForList);
 };
 
 const addNewItem = function() {
@@ -49,7 +49,7 @@ const addNewItem = function() {
     const item = getValue('#newItem');
     const todoId = document.querySelector('.activeTodo').id;
     setValue('#newItem', '');
-    sendHttpPostReq('addNewItem', `todoId=${todoId}&item=${item}`, drawItems);
+    sendHttpPostReq('addNewItem', { todoId, item }, drawItems);
   }
 };
 
@@ -59,8 +59,7 @@ const editItem = function() {
     const [, itemId] = inputId.match(/item(.*)$/);
     const item = getValue(`#${inputId}`);
     const todoId = document.querySelector('.activeTodo').id;
-    const reqBody = `todoId=${todoId}&itemId=${itemId}&item=${item}`;
-    sendHttpPostReq('editItem', reqBody, drawItems);
+    sendHttpPostReq('editItem', { todoId, itemId, item }, drawItems);
   }
 };
 
@@ -69,8 +68,7 @@ const updateTitle = function() {
     const title = getValue('#title');
     event.target.blur();
     const todoId = document.querySelector('.activeTodo').id;
-    const reqBody = `todoId=${todoId}&title=${title}`;
-    sendHttpPostReq('editTitle', reqBody, loadUpdatedTodo);
+    sendHttpPostReq('editTitle', { todoId, title }, loadUpdatedTodo);
   }
 };
 

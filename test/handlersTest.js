@@ -50,7 +50,7 @@ describe('POST', () => {
     request(app.serve.bind(app))
       .post('/saveNewTodo')
       .set('Accept', '*/*')
-      .send('title=groceries')
+      .send('{"title":"groceries"}')
       .expect(200, done)
       .expect(/"title":"groceries"/);
   });
@@ -58,28 +58,28 @@ describe('POST', () => {
     request(app.serve.bind(app))
       .post('/updateItemStatus')
       .set('Accept', '*/*')
-      .send('id=1_1')
+      .send('{"todoId":"1","itemId":"1_1"}')
       .expect(200, done);
   });
   it('Should delete the todo from the todoList', done => {
     request(app.serve.bind(app))
       .post('/removeTodo')
       .set('Accept', '*/*')
-      .send('id=1')
+      .send('{"todoId":"1"}')
       .expect(200, done);
   });
   it('Should delete the item from the todo', done => {
     request(app.serve.bind(app))
       .post('/removeItem')
       .set('Accept', '*/*')
-      .send('id=2_1')
+      .send('{"todoId":"2","itemId":"2_1"}')
       .expect(200, done);
   });
   it('Should add new item in the todo and returns the updated todo', done => {
     request(app.serve.bind(app))
       .post('/addNewItem')
       .set('Accept', '*/*')
-      .send('todoId=2&item=item')
+      .send('{"todoId":"2","item":"item"}')
       .expect(200, done)
       .expect(/"task":"item"/);
   });
@@ -87,7 +87,7 @@ describe('POST', () => {
     request(app.serve.bind(app))
       .post('/editItem')
       .set('Accept', '*/*')
-      .send('todoId=2&itemId=2_1&item=hai')
+      .send('{"todoId":"2","itemId":"2_1","item":"hai"}')
       .expect(200, done)
       .expect(/"task":"hai"/);
   });
@@ -95,7 +95,7 @@ describe('POST', () => {
     request(app.serve.bind(app))
       .post('/editTitle')
       .set('Accept', '*/*')
-      .send('todoId=2&title=new')
+      .send('{"todoId":"2","title":"new"}')
       .expect(200, done)
       .expect(/"title":"new"/);
   });

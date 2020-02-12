@@ -100,5 +100,8 @@ todo
 --Done--  make a new todo item class
             - pass the item related features to item class
 
-* instead of passing data in query string ,pass the data as json object
-* pass item and todoId directly from functions.
+--Done-- instead of passing data in query string ,pass the data as json object
+--Done-- pass item and todoId directly from functions.
+
+* Modify integration test
+* Write unit level test.
