@@ -100,13 +100,21 @@ todo
 --Done-- instead of passing data in query string ,pass the data as json object
 --Done-- pass item and todoId directly from functions.
 
-* focus after xhr requests.
 * Modify integration test.
-* Write unit level test.
+
+--Done-- Write unit level test.
 
 * Change toJSON function in todoList
-* Use delete method instead of Post in deletion
-* Use Patch method instead of Post in edit
+
+--Done-- Use delete method instead of Post in deletion
+--Done-- Use Patch method instead of Post in edit
+
+* focus after xhr requests.
+
+* extract title from index.html to htmlStringFormate
+      -and make it related to the items so we can work it in loop
+
+* check the parameters before sending to handlers
 
 * search feature by task.
 * search case insensitive.
