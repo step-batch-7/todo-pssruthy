@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "export STORAGE_FILE=$(pwd)/test/testTodoInfo.json; nyc mocha && eslint lib/*.js ./*.js ./public/scripts/*.js",
-    "start": "node server.js"
+    "start": "export STORAGE_FILE=$(pwd)/dataStore/todoInfo.json; node server.js"
   },
   "repository": {
     "type": "git",
