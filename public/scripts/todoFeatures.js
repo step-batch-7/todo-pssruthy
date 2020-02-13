@@ -67,6 +67,5 @@ const updateTitle = function() {
 
 const searchTodo = function() {
   const value = getValue('#todoSearch');
-  sendHttpGetReq(`searchTodo?text=${value}`, drawTodoList);
-  defaultVisibility();
+  sendHttpGetReq(`searchTodo?text=${value}`, drawSearchedTodo);
 };

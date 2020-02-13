@@ -24,6 +24,22 @@ const formateTodoIndex = function(todoHtml, { id, title }) {
     </div>`;
 };
 
+const formateSingleSearchedTodo = function({ id, title, items }) {
+  return `
+  <div class="todoCard" onclick="showItems(${id})">
+  <h3>${title}</h3>
+  <ul>
+  ${items.map(({ task }) => `<li>${task}</li>`).join('')}
+  </ul>
+  </div>`;
+};
+
+const drawSearchedTodo = function(todoListString) {
+  const todoList = JSON.parse(todoListString);
+  const todoHtml = todoList.map(formateSingleSearchedTodo).join('');
+  document.querySelector('#todoCards').innerHTML = todoHtml;
+};
+
 const drawTodoList = function(todoListString) {
   const todoList = JSON.parse(todoListString);
   const html = todoList.reduce(formateTodoIndex, '');
@@ -38,10 +54,14 @@ const modifyVisibility = function(selectorAndProperty) {
   }
 };
 
-const defaultVisibility = modifyVisibility.bind(null, {
-  newTodo: 'block',
-  showTodo: 'none'
-});
+const defaultVisibility = () => {
+  modifyVisibility({
+    newTodo: 'block',
+    showTodo: 'none'
+  });
+  const searchBoard = document.querySelector('#searchBoard');
+  configSearchBar(searchBoard, '0vw', '0vh', '');
+};
 
 const changeDisplayProperty = function(id, property) {
   const board = document.getElementById(`${id}`);
@@ -55,6 +75,8 @@ const drawItems = todoString => {
   const html = structureItems(todo.items);
   const div = document.getElementById('todoItems');
   div.innerHTML = html;
+  const searchBoard = document.querySelector('#searchBoard');
+  configSearchBar(searchBoard, '0vw', '0vh', '');
 };
 
 const updateTodoActive = function(id) {
@@ -82,13 +104,33 @@ const setAutocomplete = function(selector, attribute, value) {
   });
 };
 
+const configSearchBar = function(tag, width, height, innerHTML) {
+  tag.style.width = width;
+  tag.style.height = height;
+  tag.innerHTML = innerHTML;
+};
+
+const showSearchBoard = function() {
+  const searchBoard = document.querySelector('#searchBoard');
+  const { width, display } = searchBoard.style;
+  if (width === '0vw' || !width) {
+    const innerHtml = `<div id="searchBar">
+      <input type="search" id="todoSearch" placeholder="Search todo..." autofocus oninput="searchTodo()">
+      </div>
+      <div id="todoCards"></div>`;
+    configSearchBar(searchBoard, '70vw', '80vh', innerHtml);
+    return;
+  }
+  configSearchBar(searchBoard, '0vw', '0vh', '');
+};
+
 const main = function() {
   sendHttpGetReq('todoList', drawTodoList);
   defaultVisibility();
   attachEventListener('#addTodoDiv', 'click', defaultVisibility);
-  attachEventListener('#todoSearch', 'input', searchTodo);
   attachEventListener('#title', 'keydown', updateTitle);
   attachEventListener('#newItem', 'keydown', addNewItem);
   attachEventListener('#newTitle', 'keydown', saveNewTodo);
+  attachEventListener('#searchIcon', 'click', showSearchBoard);
   setAutocomplete('input', 'autocomplete', 'off');
 };

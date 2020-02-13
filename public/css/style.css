@@ -15,6 +15,10 @@ div {
   text-align: center;
 }
 
+li {
+  text-align: left;
+}
+
 .center {
   position: absolute;
   top: 50%;
@@ -105,14 +109,14 @@ div {
 .removeTodoImg {
   width: 4%;
   height: 4%;
-  padding:10px;
+  padding: 10px;
 }
 
 .removeTodoItemImg {
   width: 2%;
   height: 2%;
-  margin:auto 10px;
-  display:none;
+  margin: auto 10px;
+  display: none;
 }
 
 .item:hover > img {
@@ -132,9 +136,40 @@ body {
   margin: 18px;
 }
 
-#usrLoginIcon {
-  width: 30px;
-  height: 32%;
+#searchIcon {
+  margin: 1vw;
+  width: 2vw;
+  height: 7vh;
+  position: sticky;
+}
+
+#searchBoard {
+  /* display: none; */
+  position: absolute;
+  right: 0vw;
+  top: 15vh;
+  height: 0vh;
+  width: 0vw;
+  z-index: 2;
+  background-color: #aaa;
+  transition: 0.5s;
+}
+
+#searchBar {
+  margin: 5rem;
+}
+
+#todoCards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.todoCard {
+  min-width: 10vw;
+  min-height: 20vh;
+  margin: 2rem;
+  padding: 10px;
+  border: 1px solid black;
 }
 
 #sideBar {
@@ -204,7 +239,7 @@ body {
   width: 20%;
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   zoom: 1.2;
 }
 
@@ -213,7 +248,7 @@ input:checked + input {
 }
 
 .editItemInput {
-  padding-left:10px;
+  padding-left: 10px;
   text-align: left;
   font-size: 1rem;
 }
