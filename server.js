@@ -1,15 +1,4 @@
-const http = require('http');
-const {app} = require('./lib/handlers');
-const {stderr, stdout} = process; 
+const { app } = require('./lib/appRouters');
 
-const main = function (port) {
-  const server = new http.Server(app.serve.bind(app));
-  server.on('error', (error) => {
-    stderr.write(`------Sever Error:${error.message}\n`);
-  });
-  server.listen(port, () => {
-    stdout.write(`Serving HTTP on port ${port} (http://0.0.0.0:${port}/)\n`);
-  });
-};
-const port = 8000;
-main(port);
+const port = 8080;
+app.listen(port, () => process.stdout.write(`Started listening on ${port}`));
