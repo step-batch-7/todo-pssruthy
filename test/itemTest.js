@@ -32,4 +32,16 @@ describe('* class Item', function() {
       assert.isTrue(item.status);
     });
   });
+
+  describe('search', function() {
+    it('should give true when text matches with task', function() {
+      const item = new Item('1_1', 'task', true);
+      assert.isTrue(item.search('ta'));
+    });
+
+    it('should give false when text does not matches with task', function() {
+      const item = new Item('1_1', 'task', true);
+      assert.isFalse(item.search('pa'));
+    });
+  });
 });

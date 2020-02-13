@@ -115,7 +115,7 @@ const showSearchBoard = function() {
   const { width, display } = searchBoard.style;
   if (width === '0vw' || !width) {
     const innerHtml = `<div id="searchBar">
-      <input type="search" id="todoSearch" placeholder="Search todo..." autofocus oninput="searchTodo()">
+      <input type="search" id="todoSearch" placeholder="Search todo..." autofocus oninput="search()">
       </div>
       <div id="todoCards"></div>`;
     configSearchBar(searchBoard, '70vw', '80vh', innerHtml);

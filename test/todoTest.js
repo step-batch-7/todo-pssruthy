@@ -89,4 +89,26 @@ describe('* class Todo', function() {
       assert.deepStrictEqual(todo.title, 'edited');
     });
   });
+
+  describe('search', function() {
+    it('Should give true when the search text matches with title', function() {
+      const todo = Todo.load(sampleTodo);
+      assert.isTrue(todo.search('fir'));
+    });
+
+    it('Should give true when the search text matches with item', function() {
+      const todo = Todo.load(sampleTodo);
+      assert.isTrue(todo.search('Task'));
+    });
+
+    it('Should give false when the search text not matches with title', function() {
+      const todo = Todo.load(sampleTodo);
+      assert.isFalse(todo.search('not'));
+    });
+
+    it('Should give false when the search text not matches with item', function() {
+      const todo = Todo.load(sampleTodo);
+      assert.isFalse(todo.search('not'));
+    });
+  });
 });

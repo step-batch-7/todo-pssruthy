@@ -147,10 +147,20 @@ describe('* class : todoList', function() {
     });
   });
 
-  describe('searchByTitle', function() {
+  describe('search', function() {
     it('should search todo by its title', function() {
       const todoHistory = TodoList.load(JSON.stringify(sampleTodoList));
       assert.deepStrictEqual(todoHistory.search('fir'), todoHistory.todoList);
+    });
+
+    it('should search todo by its item', function() {
+      const todoHistory = TodoList.load(JSON.stringify(sampleTodoList));
+      assert.deepStrictEqual(todoHistory.search('Task'), todoHistory.todoList);
+    });
+
+    it('should search todo by its item', function() {
+      const todoHistory = TodoList.load(JSON.stringify(sampleTodoList));
+      assert.deepStrictEqual(todoHistory.search('not'), []);
     });
   });
 });
