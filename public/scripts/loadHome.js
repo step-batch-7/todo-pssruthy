@@ -24,19 +24,26 @@ const formateTodoIndex = function(todoHtml, { id, title }) {
     </div>`;
 };
 
-const formateSingleSearchedTodo = function({ id, title, items }) {
+const highLightText = function(text, searchedText) {
+  return text.replace(
+    new RegExp(searchedText, 'g'),
+    `<span class="highLight">${searchedText}</span>`
+  );
+};
+
+const structureTodoCard = function(text, { id, title, items }) {
   return `
   <div class="todoCard" onclick="showItems(${id})">
-  <h3>${title}</h3>
+  <h3>${highLightText(title, text)}</h3>
   <ul>
-  ${items.map(({ task }) => `<li>${task}</li>`).join('')}
+  ${items.map(({ task }) => `<li>${highLightText(task, text)}</li>`).join('')}
   </ul>
   </div>`;
 };
 
-const drawSearchedTodo = function(todoListString) {
+const drawSearchedTodo = function(text, todoListString) {
   const todoList = JSON.parse(todoListString);
-  const todoHtml = todoList.map(formateSingleSearchedTodo).join('');
+  const todoHtml = todoList.map(structureTodoCard.bind(null, text)).join('');
   document.querySelector('#todoCards').innerHTML = todoHtml;
 };
 

@@ -67,5 +67,5 @@ const updateTitle = function() {
 
 const search = function() {
   const value = getValue('#todoSearch');
-  sendHttpGetReq(`search?text=${value}`, drawSearchedTodo);
+  sendHttpGetReq(`search?text=${value}`, drawSearchedTodo.bind(null, value));
 };

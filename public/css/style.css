@@ -144,7 +144,6 @@ body {
 }
 
 #searchBoard {
-  /* display: none; */
   position: absolute;
   right: 0vw;
   top: 15vh;
@@ -157,6 +156,10 @@ body {
 
 #searchBar {
   margin: 5rem;
+}
+
+.highLight {
+  color: #ccc;
 }
 
 #todoCards {
