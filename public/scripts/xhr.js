@@ -1,4 +1,4 @@
-const sendReq = function(method, url, body, callback) {
+const sendReq = function(method, url, callback) {
   const req = new XMLHttpRequest();
   req.onload = function() {
     if (this.status === 200) {
@@ -6,7 +6,7 @@ const sendReq = function(method, url, body, callback) {
     }
   };
   req.open(method, url);
-  req.send(body);
+  req.send();
 };
 
 const sendReqAsJson = function(method, url, body, callback) {
@@ -20,7 +20,7 @@ const sendReqAsJson = function(method, url, body, callback) {
 };
 
 const sendHttpGetReq = function(url, callback) {
-  sendReq('GET', url, '', callback);
+  sendReq('GET', url, callback);
 };
 
 const sendHttpPostReq = function(url, body, callback) {
