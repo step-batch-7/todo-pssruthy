@@ -93,7 +93,7 @@ const updateTodoActive = function(id) {
 };
 
 const showItems = function(todoId) {
-  sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
+  sendHttpGetReq(`getTodo/${todoId}`, drawItems);
   updateTodoActive(todoId);
 };
 

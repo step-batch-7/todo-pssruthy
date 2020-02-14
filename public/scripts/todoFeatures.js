@@ -36,7 +36,7 @@ const removeTodo = function(todoId) {
 
 const removeItem = function(todoId, itemId) {
   sendHttpDeleteReq('removeItem', { todoId, itemId }, () => {});
-  sendHttpGetReq(`getTodo?id=${todoId}`, drawItems);
+  sendHttpGetReq(`getTodo/${todoId}`, drawItems);
 };
 
 const addNewItem = function() {
@@ -67,5 +67,5 @@ const updateTitle = function() {
 
 const search = function() {
   const value = getValue('#todoSearch');
-  sendHttpGetReq(`search?text=${value}`, drawSearchedTodo.bind(null, value));
+  sendHttpGetReq(`search/${value}`, drawSearchedTodo.bind(null, value));
 };

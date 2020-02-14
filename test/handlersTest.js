@@ -30,14 +30,14 @@ describe('GET', () => {
     request(app)
       .get('/todoList')
       .set('Accept', '*/*')
-      .expect('Content-Type', 'application/json')
+      .expect('Content-Type', /application\/json/)
       .expect(200, done);
   });
   it('Should give the specified todo with status code 200', done => {
     request(app)
-      .get('/getTodo?id=1')
+      .get('/getTodo/1')
       .set('Accept', '*/*')
-      .expect('Content-Type', 'application/json')
+      .expect('Content-Type', /application\/json/)
       .expect(200, done);
   });
 });

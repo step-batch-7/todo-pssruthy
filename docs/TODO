@@ -111,10 +111,7 @@ todo
 
 * focus after xhr requests.
 
-* extract title from index.html to htmlStringFormate
-      -and make it related to the items so we can work it in loop
-
 * check the parameters before sending to handlers
 
-* search feature by task.
+--Done-- search feature by task.
 * search case insensitive.
