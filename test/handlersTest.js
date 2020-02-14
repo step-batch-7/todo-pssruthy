@@ -1,6 +1,9 @@
-const request = require('supertest');
-const sinon = require('sinon');
 const fs = require('fs');
+const sinon = require('sinon');
+const request = require('supertest');
+const assert = require('chai').assert;
+
+const todoList = require('../test/testTodoInfo.json');
 
 const { app } = require('../lib/appRouters');
 
@@ -31,13 +34,24 @@ describe('GET', () => {
       .get('/todoList')
       .set('Accept', '*/*')
       .expect('Content-Type', /application\/json/)
+      .expect(res => {
+        assert.deepStrictEqual(res.body, todoList);
+      })
       .expect(200, done);
+    sinon.restore();
   });
   it('Should give the specified todo with status code 200', done => {
     request(app)
       .get('/getTodo/1')
       .set('Accept', '*/*')
       .expect('Content-Type', /application\/json/)
+      .expect(res => {
+        assert.deepInclude(res.body, {
+          title: 'home',
+          id: 1,
+          items: [{ id: '1_1', task: 'potato', status: false }]
+        });
+      })
       .expect(200, done);
   });
 });
@@ -46,12 +60,16 @@ describe('POST', () => {
   before(() => {
     sinon.replace(fs, 'writeFileSync', () => {});
   });
+
   it('Should save and return the todo with status code 200', done => {
     request(app)
       .post('/saveNewTodo')
       .set('Accept', '*/*')
       .send({ title: 'groceries' })
       .expect(/"title":"groceries"/)
+      .expect(res => {
+        assert.deepInclude(res.body, { title: 'groceries', id: 3, items: [] });
+      })
       .expect(200, done);
   });
 
@@ -61,6 +79,13 @@ describe('POST', () => {
       .set('Accept', '*/*')
       .send({ todoId: '2', item: 'item' })
       .expect(/"task":"item"/)
+      .expect(res => {
+        assert.deepInclude(res.body.items, {
+          id: '2_2',
+          task: 'item',
+          status: false
+        });
+      })
       .expect(200, done);
   });
 

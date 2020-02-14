@@ -5,8 +5,8 @@
     "items": [
       {
         "id": "1_1",
-        "item": "potato",
-        "isDone": false
+        "task": "potato",
+        "status": false
       }
     ]
   },
@@ -16,8 +16,8 @@
     "items": [
       {
         "id": "2_1",
-        "item": "maths",
-        "isDone": false
+        "task": "maths",
+        "status": false
       }
     ]
   }
