@@ -286,7 +286,7 @@ form input {
 #submitUsrDetails {
   font-size: 1.2rem;
   width: 13vw;
-  height: 4vh;
+  min-height: 4vh;
   background-color: #ccc;
 }
 

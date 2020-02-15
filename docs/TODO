@@ -111,7 +111,17 @@ todo
 
 * focus after xhr requests.
 
-* check the parameters before sending to handlers
+--Done-- check the parameters before sending to handlers
 
 --Done-- search feature by task.
 * search case insensitive.
+
+-----------------------------------login-------------
+
+--Done-- create an html page for login and signUp
+
+--Done-- save the new user details in userDetails.json
+
+* while saving check whether userName is  already exist or not
+
+* change the data structure of todoList 

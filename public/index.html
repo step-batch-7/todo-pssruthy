@@ -12,18 +12,20 @@
       <form action="login" method="POST">
         <input
           type="text"
-          id="usrName"
+          name="usrName"
           class="onInput"
           placeholder="User Name......"
-          autofocus
           autocomplete="off"
+          required
+          autofocus
         />
         <input
           type="password"
-          id="password"
+          name="password"
           class="onInput"
           placeholder="Password......"
           autocomplete="off"
+          required
         />
         <button type="submit" id="submitLogin" class="pointer">Submit</button>
       </form>

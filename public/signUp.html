@@ -12,36 +12,40 @@
       <form action="createAccount" method="POST">
         <input
           type="text"
-          id="newUsrName"
+          name="newUsrName"
           class="onInput"
           placeholder="User Name......"
-          autofocus
           autocomplete="off"
+          required
+          autofocus
         />
         <input
           type="email"
-          id="newEmail"
+          name="newEmail"
           class="onInput"
           placeholder="email......"
           autocomplete="off"
+          required
         />
         <input
           type="tel"
-          id="newPhnNo"
+          name="newPhnNo"
           class="onInput"
           pattern="[0-9]{10}"
           placeholder="Phone Number......"
           autocomplete="off"
+          required
         />
         <input
           type="password"
-          id="newPassword"
+          name="newPassword"
           class="onInput"
           placeholder="new Password......"
           autocomplete="off"
+          required
         />
         <button type="submit" id="submitUsrDetails" class="pointer">
-          Submit
+          submit
         </button>
       </form>
       <div class="small">
