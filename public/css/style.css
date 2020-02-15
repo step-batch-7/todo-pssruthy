@@ -223,11 +223,15 @@ body {
 }
 
 #newTitle,
-#newItem {
+#newItem,
+#usrName,
+#password {
   border-bottom: 2px solid #aaa;
 }
 
-#newTitle,
+#newTitle:focus,
+#usrName:focus,
+#password:focus,
 #newItem:focus {
   border-bottom: 2px solid black;
 }
@@ -259,4 +263,46 @@ input:checked + input {
 #title {
   font-size: 30px;
   font-weight: bolder;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* --------------------this is for login */
+
+#loginBox {
+  border: 1px solid black;
+  display: block;
+  padding: 2vw;
+  width: 15vw;
+}
+
+#loginBox form input {
+  text-align: left;
+  display: block;
+  padding: 5px;
+  margin: 30px auto;
+  width: 13vw;
+  font-size: 1.2rem;
+}
+
+#submitLogin {
+  font-size: 1.2rem;
+  width: 13vw;
+  height: 4vh;
+  background-color:#ccc;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.small {
+  padding-top: 15px;
+  font-size: medium;
 }

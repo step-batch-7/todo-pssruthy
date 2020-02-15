@@ -1,55 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <meta charset="UTF-8">
-    <title>TODO</title>
-    <link rel="icon" href="./img/to-do-icon.png">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./scripts/loadHome.js"></script>
-    <script src="./scripts/xhr.js"></script>
-    <script src="./scripts/todoFeatures.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
-
-  <body onload="main()">
-    <div>
-      <div class="heading flex spaceBetween">
-        <div class="flex">things
-          <span>
-            <h2>TODO</h2>
-          </span>
-          <img src="./img/to-do-icon.png" alt="" width="10%">
-        </div>
-        <div class="flex">
-          <img src="./img/search.png" alt="" id="searchIcon">
-        </div>
-        <div id="searchBoard">
-        </div>
-      </div>
-      <div class="flex">
-        <div id="sideBar">
-          <div id="addTodoDiv">
-            <img src="./img/plusIcon.png" id="addTodoIcon" alt="">
-            <span class="textCenter"> Add todo</span>
-          </div>
-          <hr>
-          <div id="todoIndex"></div>
-        </div>
-        <div id="todoBoard">
-          <div id="showTodo">
-            <div><input type="text" id="title"></div><br>
-            <div class="textCenter" id="itemInput">
-              <input type="text" name="" id="newItem" placeholder="Add a new item"></div>
-            <div id="todoItems">
-            </div>
-          </div>
-          <div id="newTodo">
-            <input type="text" id="newTitle" placeholder="Add a new title" autofocus>
-          </div>
-
-        </div>
-      </div>
+  <body>
+    <div id="loginBox" class="center flex">
+      <h2>LOGIN</h2>
+      <form action="login" method="POST">
+        <input
+          type="text"
+          id="usrName"
+          placeholder="User Name......"
+          autofocus
+        />
+        <input type="password" id="password" placeholder="Password......" />
+        <button type="submit" id="submitLogin" class="pointer">Submit</button>
+      </form>
+      <div class="small">Don't have an account? <a href="/signUp.html">Sign up</a></div>
     </div>
   </body>
-
 </html>

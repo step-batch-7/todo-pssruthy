@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>TODO</title>
+    <link rel="icon" href="./img/to-do-icon.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./scripts/loadHome.js"></script>
+    <script src="./scripts/xhr.js"></script>
+    <script src="./scripts/todoFeatures.js"></script>
+  </head>
+
+  <body onload="main()">
+    <div>
+      <div class="heading flex spaceBetween">
+        <div class="flex">things
+          <span>
+            <h2>TODO</h2>
+          </span>
+          <img src="./img/to-do-icon.png" alt="" width="10%">
+        </div>
+        <div class="flex">
+          <img src="./img/search.png" alt="" id="searchIcon">
+        </div>
+        <div id="searchBoard">
+        </div>
+      </div>
+      <div class="flex">
+        <div id="sideBar">
+          <div id="addTodoDiv">
+            <img src="./img/plusIcon.png" id="addTodoIcon" alt="">
+            <span class="textCenter"> Add todo</span>
+          </div>
+          <hr>
+          <div id="todoIndex"></div>
+        </div>
+        <div id="todoBoard">
+          <div id="showTodo">
+            <div><input type="text" id="title"></div><br>
+            <div class="textCenter" id="itemInput">
+              <input type="text" name="" id="newItem" placeholder="Add a new item"></div>
+            <div id="todoItems">
+            </div>
+          </div>
+          <div id="newTodo">
+            <input type="text" id="newTitle" placeholder="Add a new title" autofocus>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
