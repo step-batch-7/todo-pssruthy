@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sign up</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div id="signUpBox" class="center flex">
+      <h2>Create account</h2>
+      <form action="createAccount" method="POST">
+        <input
+          type="text"
+          id="newUsrName"
+          class="onInput"
+          placeholder="User Name......"
+          autofocus
+          autocomplete="off"
+        />
+        <input
+          type="email"
+          id="newEmail"
+          class="onInput"
+          placeholder="email......"
+          autocomplete="off"
+        />
+        <input
+          type="tel"
+          id="newPhnNo"
+          class="onInput"
+          pattern="[0-9]{10}"
+          placeholder="Phone Number......"
+          autocomplete="off"
+        />
+        <input
+          type="password"
+          id="newPassword"
+          class="onInput"
+          placeholder="new Password......"
+          autocomplete="off"
+        />
+        <button type="submit" id="submitUsrDetails" class="pointer">
+          Submit
+        </button>
+      </form>
+      <div class="small">
+        Already have an account? <a href="index.html">Login</a>
+      </div>
+    </div>
+  </body>
+</html>

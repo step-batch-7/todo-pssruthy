@@ -222,17 +222,11 @@ body {
   background-color: grey;
 }
 
-#newTitle,
-#newItem,
-#usrName,
-#password {
+.onInput {
   border-bottom: 2px solid #aaa;
 }
 
-#newTitle:focus,
-#usrName:focus,
-#password:focus,
-#newItem:focus {
+.onInput:focus {
   border-bottom: 2px solid black;
 }
 
@@ -254,7 +248,6 @@ input:checked + input {
   color: #aaa;
 }
 
-
 .editItemInput {
   padding-left: 10px;
   text-align: left;
@@ -272,14 +265,15 @@ input:checked + input {
 
 /* --------------------this is for login */
 
-#loginBox {
+#loginBox,
+#signUpBox {
   border: 1px solid black;
   display: block;
   padding: 2vw;
   width: 15vw;
 }
 
-#loginBox form input {
+form input {
   text-align: left;
   display: block;
   padding: 5px;
@@ -288,11 +282,12 @@ input:checked + input {
   font-size: 1.2rem;
 }
 
-#submitLogin {
+#submitLogin,
+#submitUsrDetails {
   font-size: 1.2rem;
   width: 13vw;
   height: 4vh;
-  background-color:#ccc;
+  background-color: #ccc;
 }
 
 a {
