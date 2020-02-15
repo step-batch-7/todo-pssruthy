@@ -277,13 +277,14 @@ form input {
   text-align: left;
   display: block;
   padding: 5px;
-  margin: 30px auto;
+  margin: 10px auto 30px;
   width: 13vw;
   font-size: 1.2rem;
 }
 
 #submitLogin,
 #submitUsrDetails {
+  margin: 15px;
   font-size: 1.2rem;
   width: 13vw;
   min-height: 4vh;
@@ -301,4 +302,14 @@ a:hover {
 .small {
   padding-top: 15px;
   font-size: medium;
+}
+
+#alert {
+  color: red;
+  font-size: medium;
+  height:20px;
+}
+
+h2 {
+  margin:20px;
 }

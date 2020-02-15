@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sign up</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="./scripts/loadHome.js"></script>
+    <script src="./scripts/xhr.js"></script>
   </head>
   <body>
     <div id="signUpBox" class="center flex">
       <h2>Create account</h2>
       <form action="createAccount" method="POST">
+        <div id="alert" class="small"></div>
         <input
           type="text"
           name="newUsrName"
           class="onInput"
           placeholder="User Name......"
           autocomplete="off"
+          onblur="validateUsrID(this)"
+          pattern=".*[^ ].*"
           required
           autofocus
         />

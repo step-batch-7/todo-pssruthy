@@ -111,6 +111,22 @@ const setAutocomplete = function(selector, attribute, value) {
   });
 };
 
+const validateUsrID = function(nameTag) {
+  const usrId = nameTag.value;
+  const alert = document.querySelector('#alert');
+  const generateAlert = res => {
+    const { isUsrExist } = JSON.parse(res);
+    if (isUsrExist) {
+      alert.innerText = `${usrId} already exist`;
+      nameTag.value = '';
+      nameTag.focus();
+      return;
+    }
+    alert.innerText = '';
+  };
+  sendHttpPostReq('/validateUsrID', { usrId }, generateAlert);
+};
+
 const configSearchBar = function(tag, width, height, innerHTML) {
   tag.style.width = width;
   tag.style.height = height;
