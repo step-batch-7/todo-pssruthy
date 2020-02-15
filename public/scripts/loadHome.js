@@ -113,7 +113,7 @@ const setAutocomplete = function(selector, attribute, value) {
 
 const validateUsrID = function(nameTag) {
   const usrId = nameTag.value;
-  const alert = document.querySelector('#alert');
+  const alert = document.querySelector('#alertOnSignUp');
   const generateAlert = res => {
     const { isUsrExist } = JSON.parse(res);
     if (isUsrExist) {

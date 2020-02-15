@@ -304,7 +304,8 @@ a:hover {
   font-size: medium;
 }
 
-#alert {
+#alertOnSignUp,
+#alertOnLogin {
   color: red;
   font-size: medium;
   height:20px;
