@@ -254,6 +254,7 @@ input:checked + input {
   color: #aaa;
 }
 
+
 .editItemInput {
   padding-left: 10px;
   text-align: left;

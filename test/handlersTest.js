@@ -2,6 +2,7 @@ const fs = require('fs');
 const sinon = require('sinon');
 const request = require('supertest');
 const assert = require('chai').assert;
+const { TodoList } = require('../lib/todoList');
 
 const todoList = require('../test/testTodoInfo.json');
 
@@ -53,6 +54,44 @@ describe('GET', () => {
         });
       })
       .expect(200, done);
+  });
+
+  it('Should give searched todo by item with status code 200', done => {
+    request(app)
+      .get('/search?text=home')
+      .set('Accept', '*/*')
+      .expect('Content-Type', /application\/json/)
+      .expect(res => {
+        assert.deepInclude(res.body, {
+          title: 'home',
+          id: 1,
+          items: [{ id: '1_1', task: 'potato', status: false }]
+        });
+      })
+      .expect(200, done);
+  });
+
+  it('Should give searched todo by item with status code 200', done => {
+    request(app)
+      .get('/search?text=potato')
+      .set('Accept', '*/*')
+      .expect('Content-Type', /application\/json/)
+      .expect(res => {
+        assert.deepInclude(res.body, {
+          title: 'home',
+          id: 1,
+          items: [{ id: '1_1', task: 'potato', status: false }]
+        });
+      })
+      .expect(200, done);
+  });
+
+  it('Should give error with 400 when text field is not in reqUrl', done => {
+    request(app)
+      .get('/search?hello=potato')
+      .set('Accept', '*/*')
+      .expect('bad request')
+      .expect(400, done);
   });
 });
 
@@ -112,6 +151,13 @@ describe('PATCH', () => {
       .set('Accept', '*/*')
       .send({ todoId: '2', itemId: '2_1', item: 'hai' })
       .expect(/"task":"hai"/)
+      .expect(res => {
+        assert.deepInclude(res.body.items, {
+          id: '2_1',
+          task: 'hai',
+          status: false
+        });
+      })
       .expect(200, done);
   });
   it('Should edit a title in the todo and returns the updated todo', done => {
@@ -120,6 +166,9 @@ describe('PATCH', () => {
       .set('Accept', '*/*')
       .send({ todoId: '2', title: 'new' })
       .expect(/"title":"new"/)
+      .expect(res => {
+        assert.strictEqual(res.body.title, 'new');
+      })
       .expect(200, done);
   });
 
