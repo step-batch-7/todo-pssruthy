@@ -1,13 +1,13 @@
 body {
   font-family: serif;
   align-items: center;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 input {
   border: none;
   outline: none;
-  font-size: 13px;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -36,20 +36,12 @@ li {
   text-align: center;
 }
 
-.todoList {
-  width: 501px;
-}
-
 .flex {
   display: flex;
 }
 
 .spaceBetween {
   justify-content: space-between;
-}
-
-.todoTitle {
-  font-size: 25px;
 }
 
 #newTodoDiv {
@@ -269,25 +261,24 @@ input:checked + input {
 #signUpBox {
   border: 1px solid black;
   display: block;
-  padding: 2vw;
-  width: 15vw;
+  padding: 1.5vw;
+  min-width: 17vw;
 }
 
 form input {
   text-align: left;
   display: block;
   padding: 5px;
-  margin: 10px auto 30px;
-  width: 13vw;
+  margin: 2vh auto 4vh;
+  min-width: 15vw;
   font-size: 1.2rem;
 }
 
 #submitLogin,
 #submitUsrDetails {
-  margin: 15px;
-  font-size: 1.2rem;
-  width: 13vw;
-  min-height: 4vh;
+  margin: 5%;
+  font-size: 1.5rem;
+  min-width: 15vw;
   background-color: #ccc;
 }
 
@@ -312,5 +303,6 @@ a:hover {
 }
 
 h2 {
-  margin:20px;
+  font-size:2rem;
+  margin: 2vh auto;
 }
