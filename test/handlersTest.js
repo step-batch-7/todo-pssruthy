@@ -239,3 +239,14 @@ describe('DELETE', () => {
     sinon.restore();
   });
 });
+
+describe('createAccount', () => {
+  it('Should create new user account and redirect to the login page', done => {
+    request(app)
+      .post('/createAccount')
+      .set('Accept', '*/*')
+      .send('newUsrName=user&newEmail=user@gmail&newPassword=user')
+      .expect('location', '/')
+      .expect(302, done);
+  });
+});
