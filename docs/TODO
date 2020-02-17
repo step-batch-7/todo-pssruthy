@@ -124,6 +124,14 @@ todo
 
 --Done-- while saving check whether userName is  already exist or not
 
-* change the data structure of todoList 
+--Done-- While login username / password are wrong redirect to login page otherwise redirect to todo page.
+* Load login page with some message.
 
-* While login username / password are wrong redirect to login page otherwise redirect to todo page.
+--Done-- Changing data structure to object and userId as a key.
+--Done-- Verify the user by using cookie.
+--Done-- Provide the user their own todo. 
+
+* Bind all the global variables in app.locals
+* Directly redirect to user todo page if user already logged in.
+
+* Make a new router for all routes except login and sign in.
