@@ -44,43 +44,28 @@ li {
   justify-content: space-between;
 }
 
-#newTodoDiv {
-  margin: auto;
-  display: flex;
-  width: fit-content;
-  padding: 5px;
-  border-radius: 3px;
-  background-color: antiquewhite;
-}
-
-#addItem {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-right: 5px;
-  width: fit-content;
-  background-color: grey;
-  font-size: 20px;
-  border-radius: 4px;
-  border-color: rgb(73, 71, 71);
+#todoIndex {
+  overflow: scroll;
+  height: 500px;
 }
 
 .extractedTodo {
   background-color: #ddd;
   border-bottom: 2px solid #ddd;
   border-radius: 5px;
-  width: inherit;
   margin-bottom: 7px;
 }
 
 .extractedTodo > div {
   width: 95%;
-  height: inherit;
   text-align: left;
-  font-size: 20px;
-  padding: 10px 10px 0px;
-  justify-content: space-between;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.removeTodoImg {
+  width: 1.2rem;
+  padding: 10px;
 }
 
 .extractedTodo:hover {
@@ -96,12 +81,6 @@ li {
 .item:hover {
   box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.639);
   border-radius: 4px;
-}
-
-.removeTodoImg {
-  width: 4%;
-  height: 4%;
-  padding: 10px;
 }
 
 .removeTodoItemImg {
@@ -197,10 +176,6 @@ body {
   padding-bottom: 10px;
 }
 
-#todoIndex {
-  overflow: scroll;
-  height: 500px;
-}
 
 #newTodo {
   display: none;
@@ -299,10 +274,10 @@ a:hover {
 #alertOnLogin {
   color: red;
   font-size: medium;
-  height:20px;
+  height: 20px;
 }
 
 h2 {
-  font-size:2rem;
+  font-size: 2rem;
   margin: 2vh auto;
 }
