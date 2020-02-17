@@ -2,11 +2,37 @@ const fs = require('fs');
 const sinon = require('sinon');
 const request = require('supertest');
 const assert = require('chai').assert;
-const { TodoList } = require('../lib/todoList');
-
 const todoList = require('../test/testTodoInfo.json');
 
 const { app } = require('../lib/appRouters');
+
+const { Users } = require('../lib/users');
+const { UserTodo } = require('../lib/userTodo');
+
+const sampleUserDetails = {
+  sru: {
+    userId: 'sru',
+    email: 'sru@d',
+    password: '123'
+  }
+};
+
+const storeTodoList = sinon.fake();
+const storeUsers = sinon.fake();
+
+const userTodo = UserTodo.load(JSON.stringify(todoList));
+app.locals = {
+  users: Users.load(JSON.stringify(sampleUserDetails)),
+  userTodo,
+  sessionIds: {
+    '112233': {
+      userName: 'sru',
+      todo: userTodo.getTodoList('sru')
+    }
+  },
+  storeTodoList,
+  storeUsers
+};
 
 describe('GET', () => {
   it('Should give the home page of the app', done => {
@@ -30,21 +56,25 @@ describe('GET', () => {
       .expect('Content-Type', /text\/css/)
       .expect(200, done);
   });
+
   it('Should give the stringified todo list with status code 200', done => {
     request(app)
-      .get('/todoList')
+      .get('/user/todoList')
       .set('Accept', '*/*')
-      .expect('Content-Type', /application\/json/)
+      .set('cookie', ['sessionId=112233'])
       .expect(res => {
-        assert.deepStrictEqual(res.body, todoList);
+        assert.deepStrictEqual(res.body, todoList.sru);
       })
+      .expect('Content-Type', /application\/json/)
       .expect(200, done);
     sinon.restore();
   });
+
   it('Should give the specified todo with status code 200', done => {
     request(app)
-      .get('/getTodo/1')
+      .get('/user/getTodo/1')
       .set('Accept', '*/*')
+      .set('cookie', ['sessionId=112233'])
       .expect('Content-Type', /application\/json/)
       .expect(res => {
         assert.deepInclude(res.body, {
@@ -58,8 +88,9 @@ describe('GET', () => {
 
   it('Should give searched todo by item with status code 200', done => {
     request(app)
-      .get('/search?text=home')
+      .get('/user/search?text=home')
       .set('Accept', '*/*')
+      .set('cookie', ['sessionId=112233'])
       .expect('Content-Type', /application\/json/)
       .expect(res => {
         assert.deepInclude(res.body, {
@@ -73,8 +104,9 @@ describe('GET', () => {
 
   it('Should give searched todo by item with status code 200', done => {
     request(app)
-      .get('/search?text=potato')
+      .get('/user/search?text=potato')
       .set('Accept', '*/*')
+      .set('cookie', ['sessionId=112233'])
       .expect('Content-Type', /application\/json/)
       .expect(res => {
         assert.deepInclude(res.body, {
@@ -90,8 +122,7 @@ describe('GET', () => {
     request(app)
       .get('/search?hello=potato')
       .set('Accept', '*/*')
-      .expect('bad request')
-      .expect(400, done);
+      .expect(404, done);
   });
 });
 
@@ -102,8 +133,9 @@ describe('POST', () => {
 
   it('Should save and return the todo with status code 200', done => {
     request(app)
-      .post('/saveNewTodo')
+      .post('/user/saveNewTodo')
       .set('Accept', '*/*')
+      .set('cookie', ['sessionId=112233'])
       .send({ title: 'groceries' })
       .expect(/"title":"groceries"/)
       .expect(res => {
@@ -114,8 +146,9 @@ describe('POST', () => {
 
   it('Should add new item in the todo and returns the updated todo', done => {
     request(app)
-      .post('/addNewItem')
+      .post('/user/addNewItem')
       .set('Accept', '*/*')
+      .set('cookie', ['sessionId=112233'])
       .send({ todoId: '2', item: 'item' })
       .expect(/"task":"item"/)
       .expect(res => {
@@ -139,7 +172,8 @@ describe('PATCH', () => {
   });
   it('Should update the item status when the checkbox is clicked', done => {
     request(app)
-      .patch('/updateItemStatus')
+      .patch('/user/updateItemStatus')
+      .set('cookie', ['sessionId=112233'])
       .set('Accept', '*/*')
       .send({ todoId: '1', itemId: '1_1' })
       .expect(200, done);
@@ -147,7 +181,8 @@ describe('PATCH', () => {
 
   it('Should edit a item in the todo and returns the updated todo', done => {
     request(app)
-      .patch('/editItem')
+      .patch('/user/editItem')
+      .set('cookie', ['sessionId=112233'])
       .set('Accept', '*/*')
       .send({ todoId: '2', itemId: '2_1', item: 'hai' })
       .expect(/"task":"hai"/)
@@ -162,7 +197,8 @@ describe('PATCH', () => {
   });
   it('Should edit a title in the todo and returns the updated todo', done => {
     request(app)
-      .patch('/editTitle')
+      .patch('/user/editTitle')
+      .set('cookie', ['sessionId=112233'])
       .set('Accept', '*/*')
       .send({ todoId: '2', title: 'new' })
       .expect(/"title":"new"/)
@@ -184,14 +220,16 @@ describe('DELETE', () => {
 
   it('Should delete the todo from the todoList', done => {
     request(app)
-      .delete('/removeTodo')
+      .delete('/user/removeTodo')
+      .set('cookie', ['sessionId=112233'])
       .set('Accept', '*/*')
       .send({ todoId: '1' })
       .expect(200, done);
   });
   it('Should delete the item from the todo', done => {
     request(app)
-      .delete('/removeItem')
+      .delete('/user/removeItem')
+      .set('cookie', ['sessionId=112233'])
       .set('Accept', '*/*')
       .send({ todoId: '2', itemId: '2_1' })
       .expect(200, done);

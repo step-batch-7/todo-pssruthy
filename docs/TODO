@@ -131,7 +131,7 @@ todo
 --Done-- Verify the user by using cookie.
 --Done-- Provide the user their own todo. 
 
-* Bind all the global variables in app.locals
+--Done-- Bind all the global variables in app.locals
 
 --Done-- Directly redirect to user todo page if user already logged in.
 
