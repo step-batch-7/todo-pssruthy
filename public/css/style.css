@@ -2,6 +2,7 @@ body {
   font-family: serif;
   align-items: center;
   font-size: 1.5rem;
+  margin: 0px;
 }
 
 input {
@@ -176,7 +177,6 @@ body {
   padding-bottom: 10px;
 }
 
-
 #newTodo {
   display: none;
 }
@@ -228,56 +228,4 @@ input:checked + input {
 
 .pointer {
   cursor: pointer;
-}
-
-/* --------------------this is for login */
-
-#loginBox,
-#signUpBox {
-  border: 1px solid black;
-  display: block;
-  padding: 1.5vw;
-  min-width: 17vw;
-}
-
-form input {
-  text-align: left;
-  display: block;
-  padding: 5px;
-  margin: 2vh auto 4vh;
-  min-width: 15vw;
-  font-size: 1.2rem;
-}
-
-#submitLogin,
-#submitUsrDetails {
-  margin: 5%;
-  font-size: 1.5rem;
-  min-width: 15vw;
-  background-color: #ccc;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.small {
-  padding-top: 15px;
-  font-size: medium;
-}
-
-#alertOnSignUp,
-#alertOnLogin {
-  color: red;
-  font-size: medium;
-  height: 20px;
-}
-
-h2 {
-  font-size: 2rem;
-  margin: 2vh auto;
 }
