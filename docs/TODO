@@ -132,6 +132,9 @@ todo
 --Done-- Provide the user their own todo. 
 
 * Bind all the global variables in app.locals
+
 * Directly redirect to user todo page if user already logged in.
 
 * Make a new router for all routes except login and sign in.
+
+--Done-- add logout feature

@@ -69,3 +69,9 @@ const search = function() {
   const value = getValue('#todoSearch');
   sendHttpGetReq(`search?text=${value}`, drawSearchedTodo.bind(null, value));
 };
+
+const logout = function() {
+  sendHttpGetReq('logout', () => {
+    window.location = '/';
+  });
+};
