@@ -250,3 +250,22 @@ describe('createAccount', () => {
       .expect(302, done);
   });
 });
+
+describe('login', () => {
+  it('Should redirect to the home page of the user, when userId and password are valid', done => {
+    request(app)
+      .post('/login')
+      .set('Accept', '*/*')
+      .send('usrName=sru&password=123')
+      .expect('location', '/user/todo.html')
+      .expect(302, done);
+  });
+  it('Should redirect to the login page when userId and password are invalid', done => {
+    request(app)
+      .post('/login')
+      .set('Accept', '*/*')
+      .send('usrName=user&password=12345')
+      .expect('location', '/')
+      .expect(302, done);
+  });
+});
