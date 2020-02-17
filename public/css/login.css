@@ -1,0 +1,58 @@
+body {
+  background-image: url('../img/loginBackground.png');
+  background-size: cover;
+}
+
+#loginBox,
+#signUpBox {
+  display: block;
+  padding: 1.7vw;
+  min-width: 17vw;
+  background-color: #eee;
+  border-radius: 10px;
+  box-shadow: 5px 15px 15px -5px rgba(0, 0, 0, 0.8);
+}
+
+form input {
+  text-align: left;
+  display: block;
+  padding: 5px;
+  margin: 2vh auto 4vh;
+  min-width: 15vw;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+#submitLogin,
+#submitUsrDetails {
+  margin: 5%;
+  font-size: 1.5rem;
+  min-width: 15vw;
+  border-radius: 5px;
+  background-image: linear-gradient(#ccc,#bbb,#ccc);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.small {
+  padding-top: 15px;
+  font-size: medium;
+}
+
+#alertOnSignUp,
+#alertOnLogin {
+  color: red;
+  font-size: medium;
+  height: 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 2vh auto;
+}
