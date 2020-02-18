@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>TODO</title>
-    <link rel="icon" href="img/to-do-icon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/to-do-icon.png" />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="scripts/loadHome.js"></script>
     <script src="scripts/xhr.js"></script>
     <script src="scripts/todoFeatures.js"></script>
@@ -14,22 +13,23 @@
   <body onload="main()">
     <div>
       <div class="heading flex spaceBetween">
-        <div onclick="logout()">Logout</div>
-        <div class="flex">
-          <h2>TODO
-            <span><img src="./img/to-do-icon.png" alt="" width="10%"></span>
-          </h2>
+        <div>
+          <img id="logoutIcon" src="img/logout.png" onclick="logout()" />
         </div>
         <div class="flex">
-          <img src="./img/search.png" alt="" id="searchIcon">
+          <h1>
+            TODO
+          </h1>
         </div>
-        <div id="searchBoard">
+        <div class="flex">
+          <img src="./img/search.png" alt="" id="searchIcon" />
         </div>
+        <div id="searchBoard"></div>
       </div>
       <div class="flex">
         <div id="sideBar">
           <div id="addTodoDiv">
-            <img src="./img/plusIcon.png" id="addTodoIcon" alt="">
+            <img src="./img/plusIcon.png" id="addTodoIcon" alt="" />
             <span class="textCenter"> Add todo</span>
           </div>
           <!-- <hr> -->
@@ -37,19 +37,31 @@
         </div>
         <div id="todoBoard">
           <div id="showTodo">
-            <div><input type="text" id="title"></div><br>
+            <div><input type="text" id="title" /></div>
+            <br />
             <div class="textCenter" id="itemInput">
-              <input type="text" name="" id="newItem" class='onInput' placeholder="Add a new item"></div>
-            <div id="todoItems">
+              <input
+                type="text"
+                name=""
+                id="newItem"
+                class="onInput"
+                placeholder="Add a new item"
+              />
             </div>
+
+            <div id="todoItems"></div>
           </div>
           <div id="newTodo">
-            <input type="text" id="newTitle" class='onInput' placeholder="Add a new title" autofocus>
+            <input
+              type="text"
+              id="newTitle"
+              class="onInput"
+              placeholder="Add a new title"
+              autofocus
+            />
           </div>
-
         </div>
       </div>
     </div>
   </body>
-
 </html>
