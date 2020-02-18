@@ -8,7 +8,7 @@ body {
 input {
   border: none;
   outline: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 
@@ -27,12 +27,6 @@ li {
   transform: translate(-50%, -50%);
 }
 
-.mainHeading {
-  justify-content: center;
-  padding-left: 45%;
-  padding-right: 60%;
-}
-
 .textCenter {
   text-align: center;
 }
@@ -47,7 +41,10 @@ li {
 
 #todoIndex {
   overflow: scroll;
-  height: 500px;
+  padding: 1rem;
+  height: 62vh;
+  border-radius: 5px;
+  box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.5);
 }
 
 .extractedTodo {
@@ -59,6 +56,7 @@ li {
 
 .extractedTodo > div {
   width: 95%;
+  overflow: scroll;
   text-align: left;
   font-size: 1.5rem;
   padding: 0.5rem;
@@ -74,9 +72,11 @@ li {
 }
 
 #todoItems {
-  padding-top: 40px;
-  padding-left: 250px;
-  padding-right: 250px;
+  width: 30vw;
+  height: 50vh;
+  overflow: scroll;
+  min-width: 300px;
+  margin: 3vh auto 0;
 }
 
 .item:hover {
@@ -85,8 +85,8 @@ li {
 }
 
 .removeTodoItemImg {
-  width: 2%;
-  height: 2%;
+  width: 0.8rem;
+  height: 0.8rem;
   margin: auto 10px;
   display: none;
 }
@@ -95,11 +95,7 @@ li {
   display: block;
 }
 
-html,
-body {
-  height: 100%;
-}
-
+/* ---------------------- */
 #todoSearch {
   width: 400px;
   height: 25px;
@@ -112,16 +108,26 @@ body {
   margin: 1vw;
   width: 2vw;
   height: 7vh;
+  min-width: 30px;
+  min-height: 50px;
   position: sticky;
 }
 
-#searchBoard {
+#removeSearch {
+  width:2vw;
   position: absolute;
+  top:2vh;
+  right:2vh;
+}
+
+#searchBoard {
   right: 0vw;
-  top: 15vh;
+  top: 22vh;
   height: 0vh;
   width: 0vw;
   z-index: 2;
+  position: absolute;
+  overflow: scroll;
   background-color: #aaa;
   transition: 0.5s;
 }
@@ -147,11 +153,11 @@ body {
   border: 1px solid black;
 }
 
+/* //----------------- */
 #sideBar {
-  width: 30%;
+  max-width: 25vw;
   height: 100%;
   padding: 10px;
-  border-right: grey solid 1px;
   padding-right: 20px;
 }
 
@@ -166,15 +172,18 @@ body {
 }
 
 #addTodoDiv {
-  background-color: gainsboro;
-  border-radius: 6px;
-  width: 90%;
-}
+  width: 100%;
+  height: 8vh;
+  border-radius: 5px;
+  margin-bottom:2vh;
+  background-color:#bbb;
+  box-shadow: 5px 15px 15px -5px rgba(0, 0, 0, 0.5);
+;}
 
 .heading {
-  border-bottom: gray solid 1px;
-  margin-bottom: 20px;
   padding-bottom: 10px;
+  height: 20vh;
+  border-bottom: gray solid 1px;
 }
 
 #newTodo {

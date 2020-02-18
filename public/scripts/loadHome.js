@@ -140,6 +140,7 @@ const showSearchBoard = function() {
     const innerHtml = `<div id="searchBar">
       <input type="search" id="todoSearch" placeholder="Search todo..." autofocus oninput="search()">
       </div>
+      <img id="removeSearch" src="img/cross.png" onclick="showSearchBoard()"/>
       <div id="todoCards"></div>`;
     configSearchBar(searchBoard, '70vw', '80vh', innerHtml);
     return;
