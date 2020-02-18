@@ -251,6 +251,27 @@ describe('createAccount', () => {
   });
 });
 
+describe('isAuthorizedUser', () => {
+  it('Should redirect to the login page when user is not known', done => {
+    request(app)
+      .post('/user/todoList')
+      .set('Accept', '*/*')
+      .expect('location', '/')
+      .expect(302, done);
+  });
+});
+
+describe('identifyUser', () => {
+  it('Should redirect to the todo page when user is known', done => {
+    request(app)
+      .post('/')
+      .set('Accept', '*/*')
+      .set('cookie', ['sessionId=112233'])
+      .expect('location', '/user/todo.html')
+      .expect(302, done);
+  });
+});
+
 describe('login', () => {
   it('Should redirect to the home page of the user, when userId and password are valid', done => {
     request(app)
@@ -267,5 +288,25 @@ describe('login', () => {
       .send('usrName=user&password=12345')
       .expect('location', '/')
       .expect(302, done);
+  });
+});
+
+describe('logout', () => {
+  it('Should redirect to the login page of the user, when user want to logout', done => {
+    request(app)
+      .get('/user/logout')
+      .set('Accept', '*/*')
+      .set('cookie', ['sessionId=112233'])
+      .expect(200, done);
+  });
+});
+
+describe('validate', () => {
+  it('Should validate already logged user', done => {
+    request(app)
+      .post('/validateUsrID')
+      .set('Accept', '*/*')
+      .send('usrId=sru')
+      .expect(200, done);
   });
 });
