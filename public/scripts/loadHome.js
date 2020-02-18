@@ -66,6 +66,7 @@ const defaultVisibility = () => {
     newTodo: 'block',
     showTodo: 'none'
   });
+  removeActiveTodo();
   const searchBoard = document.querySelector('#searchBoard');
   configSearchBar(searchBoard, '0vw', '0vh', '');
 };
@@ -86,9 +87,13 @@ const drawItems = todoString => {
   configSearchBar(searchBoard, '0vw', '0vh', '');
 };
 
-const updateTodoActive = function(id) {
+const removeActiveTodo = function() {
   const activeTodo = document.querySelector('.activeTodo');
   activeTodo && activeTodo.classList.remove('activeTodo');
+};
+
+const updateTodoActive = function(id) {
+  removeActiveTodo();
   document.getElementById(id).classList.add('activeTodo');
 };
 
