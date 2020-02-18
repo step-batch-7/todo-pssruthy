@@ -10,7 +10,7 @@ body {
   min-width: 17vw;
   background-color: #eee;
   border-radius: 10px;
-  box-shadow: 5px 15px 15px -5px rgba(0, 0, 0, 0.8);
+  box-shadow: 5px 10px 10px -5px rgba(0, 0, 0, 0.8);
 }
 
 form input {
