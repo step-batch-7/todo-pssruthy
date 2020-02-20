@@ -64,6 +64,7 @@ li {
 
 .removeTodoImg {
   width: 1.2rem;
+  min-height: 1.5rem;
   padding: 10px;
 }
 
@@ -181,6 +182,7 @@ li {
 #addTodoDiv {
   width: 100%;
   height: 8vh;
+  min-height: 50px;
   border-radius: 5px;
   margin-bottom: 2vh;
   background-color: #bbb;
